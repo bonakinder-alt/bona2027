@@ -28,7 +28,7 @@
   }
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:0 48px;word-break:keep-all}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65;padding-inline:16px;padding-block:0 104px;word-break:keep-all}
 .wrap{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
 h1,h2,h3{font-family:var(--font-display);font-weight:400;text-wrap:balance;margin:0;line-height:1.3}
 h1{font-size:2rem}
@@ -131,7 +131,9 @@ legend{font-size:.88rem;font-weight:500;margin-bottom:8px;padding:0}
 .linkbtn{appearance:none;border:0;background:none;color:var(--accent);font:inherit;text-decoration:underline;cursor:pointer;min-height:44px}
 .yt-embed{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
 .yt-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.music{position:fixed;right:16px;bottom:16px;z-index:40;appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:inherit;font-size:.85rem;min-height:44px;padding:8px 14px;border-radius:999px;box-shadow:0 2px 8px rgba(0,0,0,.12);cursor:pointer}
+.music{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;appearance:none;border:2px solid var(--accent);background:var(--accent);color:#fff;font:inherit;font-size:1rem;font-weight:700;min-height:50px;padding:10px 20px 10px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.music svg{width:22px;height:22px;fill:currentColor;flex:none}
+.music.off{background:var(--surface);color:var(--accent)}
 .yt-cap{font-size:.88rem;color:var(--muted);margin-top:-6px}
 .welcome{position:fixed;inset:0;z-index:50;background:var(--accent);color:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;cursor:pointer;transition:opacity .6s ease,visibility .6s}
 .welcome.out{opacity:0;visibility:hidden}
@@ -154,7 +156,7 @@ legend{font-size:.88rem;font-weight:500;margin-bottom:8px;padding:0}
   <div class="tap">화면을 눌러 시작하기</div>
 </div>
 <audio id="bgm" loop preload="auto"></audio>
-<button class="music" id="musicBtn" type="button" hidden>♪ 음악 끄기</button>
+<button class="music" id="musicBtn" type="button" hidden aria-live="polite"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg><span>음악 끄기</span></button>
 <div class="wrap">
   <div class="view" id="parentView">
   <header>
@@ -314,7 +316,8 @@ var BGM_SRC='bona-welcome-music.mp3';
 (function(){
   var w=$('welcome'),a=$('bgm'),b=$('musicBtn');
   if(BGM_SRC){a.src=BGM_SRC;a.volume=.6;}
-  function setBtn(){b.textContent=a.paused?'♪ 음악 켜기':'♪ 음악 끄기';}
+  var ICON_ON='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>',ICON_OFF='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6h4l5 5V4L7 9H3zm13.6 3 2.7-2.7-1.4-1.4-2.7 2.7-2.7-2.7-1.4 1.4 2.7 2.7-2.7 2.7 1.4 1.4 2.7-2.7 2.7 2.7 1.4-1.4z"/></svg>';
+  function setBtn(){var off=a.paused;b.innerHTML=(off?ICON_ON:ICON_OFF)+'<span>'+(off?'음악 켜기':'음악 끄기')+'</span>';b.classList.toggle('off',off);}
   function play(){if(!BGM_SRC)return;var p=a.play();if(p&&p.catch)p.catch(function(){});b.hidden=false;}
   function enter(){w.classList.add('out');play();}
   w.addEventListener('click',enter);
