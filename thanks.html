@@ -215,6 +215,36 @@ body.locked{overflow:hidden}
 .music.show{display:inline-flex}
 .music .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
 .music.on .dot{background:var(--leaf)}
+
+/* 현장접수 신청서 */
+.apply-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;min-height:44px;padding:10px 18px;border-radius:999px;border:0;background:var(--leaf);color:var(--surface);font:700 15px/1.2 var(--body);cursor:pointer}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;display:none}
+.sheet.open{display:block}
+.sheet-in{max-width:480px;margin:0 auto;padding:16px 16px 40px}
+.sheet-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
+.sheet-top h2{display:block;font:700 21px/1.4 var(--display);margin:0}
+.sheet-close{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;min-width:44px;min-height:44px;font:500 15px var(--body);cursor:pointer}
+.sheet .lead{color:var(--muted);font:400 14px/1.7 var(--body);margin:0 0 16px;word-break:keep-all}
+.fld{display:block;margin:0 0 14px}
+.fld span{display:block;font:700 14px/1.4 var(--body);color:var(--ink);margin-bottom:6px}
+.fld input,.fld select{width:100%;box-sizing:border-box;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:400 16px/1.4 var(--body)}
+.fld input:focus,.fld select:focus{outline:2px solid var(--leaf);outline-offset:1px}
+.sig-wrap{border:1px dashed var(--muted);border-radius:12px;background:#fff;touch-action:none}
+.sig-wrap canvas{display:block;width:100%;height:160px;border-radius:12px}
+.sig-row{display:flex;justify-content:space-between;align-items:center;margin:6px 0 14px;color:var(--muted);font:400 13px var(--body)}
+.sig-row button{appearance:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;min-height:36px;padding:6px 12px;font:500 14px var(--body);cursor:pointer}
+.agree{display:flex;gap:10px;align-items:flex-start;padding:12px;border:1px solid var(--line);border-radius:12px;background:var(--surface);margin:0 0 16px;font:400 13px/1.6 var(--body);color:var(--muted)}
+.agree input{width:22px;height:22px;flex:0 0 22px;margin:2px 0 0;accent-color:var(--leaf)}
+.agree b{color:var(--ink)}
+.sheet .err{color:var(--red);font:500 14px/1.5 var(--body);margin:0 0 12px;min-height:1px}
+.sheet .go{width:100%;min-height:50px;border:0;border-radius:12px;background:var(--leaf);color:var(--surface);font:700 17px var(--body);cursor:pointer}
+.result{display:none}
+.result.show{display:block}
+.result img{width:100%;border:1px solid var(--line);border-radius:8px;background:#fff;margin:4px 0 14px}
+.result .acts{display:grid;gap:10px}
+.result .acts a,.result .acts button{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;font:700 16px var(--body);text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.result .acts .kakao{background:#fee500;color:#191600;border-color:#fee500}
+.result .steps{font:400 14px/1.7 var(--body);color:var(--muted);margin:0 0 14px;padding-left:20px}
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink)}</style>
 </head>
@@ -234,6 +264,39 @@ body.locked{overflow:hidden}
 </div>
 <audio id="bgm" loop preload="auto" data-src="thanks-music.mp3"></audio>
 <button class="music" id="musicBtn" type="button" aria-label="음악 끄기"><span class="dot"></span><span id="musicLabel">음악 끄기</span></button>
+
+<div class="sheet" id="applySheet" role="dialog" aria-modal="true" aria-labelledby="applyTitle">
+ <div class="sheet-in">
+  <div class="sheet-top"><h2 id="applyTitle">우선모집 현장접수 신청서</h2><button class="sheet-close" type="button" id="applyClose" aria-label="닫기">닫기</button></div>
+  <div id="applyForm">
+   <p class="lead"><b>현장접수는 보나유치원 1순위로 지원이 됩니다.</b><br>작성하신 내용은 이 페이지에 저장되지 않아요. 마지막에 만들어지는 신청서 이미지를 유치원 카카오톡 채널로 보내 주시면 접수 첫날 원에서 대신 등록해 드려요.</p>
+   <label class="fld"><span>지원 연령</span><select id="fAge"><option value="">선택해 주세요</option><option>만 3세 (2023년생)</option><option>만 4세 (2022년생)</option></select></label>
+   <label class="fld"><span>아이 이름</span><input id="fChild" autocomplete="off"></label>
+   <label class="fld"><span>아이 생년월일</span><input id="fBirth" type="date" min="2021-01-01" max="2023-12-31"></label>
+   <label class="fld"><span>보호자 이름</span><input id="fParent" autocomplete="name"></label>
+   <label class="fld"><span>주소</span><input id="fAddr" autocomplete="street-address"></label>
+   <label class="fld"><span>보호자 전화번호</span><input id="fPhone" type="tel" inputmode="tel" autocomplete="tel" placeholder="010-0000-0000"></label>
+   <div class="fld"><span>보호자 서명</span>
+    <div class="sig-wrap"><canvas id="sig" aria-label="손가락으로 서명하는 칸"></canvas></div>
+    <div class="sig-row"><span>칸 안에 손가락으로 서명해 주세요</span><button type="button" id="sigClear">다시 쓰기</button></div>
+   </div>
+   <label class="agree"><input type="checkbox" id="fAgree"><span><b>개인정보 수집·이용 동의 (필수)</b><br>수집 항목: 아이 이름·생년월일, 보호자 이름·주소·전화번호, 서명 / 목적: 2027학년도 유아모집 현장접수 대리 등록과 연락 / 보관: 모집 종료 후 즉시 파기. 동의하지 않으실 수 있으며, 이 경우 현장접수 대리 등록이 어려워요.</span></label>
+   <p class="err" id="applyErr" role="alert"></p>
+   <button class="go" type="button" id="applyMake">신청서 만들기</button>
+  </div>
+  <div class="result" id="applyResult">
+   <p class="lead">신청서가 만들어졌어요. 아래 순서대로 보내 주세요.</p>
+   <ol class="steps"><li>"이미지 저장"을 누르거나, 아래 신청서 이미지를 길게 눌러 사진으로 저장해요.</li><li>"카카오톡 채널로 보내기"를 눌러 채팅창에 저장한 이미지를 올려요.</li><li>아이 주민등록번호는 접수 전에 원에서 전화로 확인해요.</li></ol>
+   <img id="applyImg" alt="작성한 현장접수 신청서">
+   <div class="acts">
+    <a id="applySave" download="보나유치원_현장접수신청서.png" href="#">이미지 저장</a>
+    <button type="button" id="applyShare" hidden>바로 공유하기</button>
+    <a class="kakao" href="https://pf.kakao.com/_xlhAVn/chat" target="_blank" rel="noopener">카카오톡 채널로 보내기</a>
+    <button type="button" id="applyBack">내용 고치기</button>
+   </div>
+  </div>
+ </div>
+</div>
 <div class="wrap">
 
 
@@ -312,7 +375,7 @@ body.locked{overflow:hidden}
   <ol class="steps">
     <li><div><b>보나유치원을 1지망으로 써 주세요</b><span>세 곳까지 지원할 수 있지만, 저희 원은 1지망 지원자로 자리가 대부분 채워져 그동안 2지망 지원자는 선발되지 못했어요.</span></div></li>
     <li><div><b>대부분 우선모집 대상이에요</b><span>법정 저소득층, 국가보훈, 북한이탈주민 가정에 더해, 방학동, 쌍문동 등 통학버스가 다니는 지역이나 걸어서 다닐 수 있는 가까운 곳에 사시면 우선모집으로 지원할 수 있어요.</span></div></li>
-    <li><div><b>현장접수 신청서를 권해 드려요</b><span>현장접수 신청서를 내 주시면 접수 첫날 시스템이 열리는 대로 원에서 학부모님 대신 등록해 드려요. 현장접수도 100% 합격은 아니고 똑같이 추첨으로 선발돼요. 다만 나중에 추가모집이나 빈자리가 생기면 우선 연락드려 입학을 도와드릴게요. 현장접수 신청을 원하시면 유치원으로 연락 주세요. 도와드리겠습니다.</span></div></li>
+    <li><div><b>현장접수 신청서를 권해 드려요</b><span>현장접수 신청서를 내 주시면 접수 첫날 시스템이 열리는 대로 원에서 학부모님 대신 등록해 드려요. 현장접수도 100% 합격은 아니고 똑같이 추첨으로 선발돼요. 다만 나중에 추가모집이나 빈자리가 생기면 우선 연락드려 입학을 도와드릴게요. 현장접수 신청을 원하시면 아래 신청서를 작성해 보내 주시거나 유치원으로 연락 주세요. 도와드리겠습니다.<br><button class="apply-btn" type="button" id="applyOpen">현장접수 신청서 작성하기</button></span></div></li>
     <li><div><b>선착순이 아니에요</b><span>접수 기간 안에만 내시면 마감 후 시스템이 자동 추첨합니다. 아침 9시에 서두르지 않으셔도 돼요.</span></div></li>
     <li><div><b>선발된 뒤 등록까지 해야 끝이에요</b><span>발표만 확인하고 등록하지 않으면 선발이 취소돼요. 우선모집에서 선발되어 등록하면 일반모집에는 지원할 수 없어요.</span></div></li>
   </ol>
@@ -478,6 +541,64 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
   });
 })();
 </script>
+<script>
+(function(){
+  var sheet=document.getElementById('applySheet'),openB=document.getElementById('applyOpen');
+  if(!sheet||!openB)return;
+  var cv=document.getElementById('sig'),ctx=cv.getContext('2d'),drawn=false,down=false;
+  function size(){var r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;ctx.setTransform(d,0,0,d,0,0);ctx.lineWidth=2.4;ctx.lineCap='round';ctx.lineJoin='round';ctx.strokeStyle='#1f2a22';drawn=false;}
+  function pt(e){var r=cv.getBoundingClientRect();return [e.clientX-r.left,e.clientY-r.top];}
+  cv.addEventListener('pointerdown',function(e){down=true;cv.setPointerCapture(e.pointerId);var p=pt(e);ctx.beginPath();ctx.moveTo(p[0],p[1]);e.preventDefault();});
+  cv.addEventListener('pointermove',function(e){if(!down)return;var p=pt(e);ctx.lineTo(p[0],p[1]);ctx.stroke();drawn=true;e.preventDefault();});
+  ['pointerup','pointercancel','pointerleave'].forEach(function(t){cv.addEventListener(t,function(){down=false;});});
+  document.getElementById('sigClear').addEventListener('click',size);
+  var form=document.getElementById('applyForm'),res=document.getElementById('applyResult');
+  function open(){sheet.classList.add('open');document.body.classList.add('locked');form.style.display='';res.classList.remove('show');setTimeout(size,30);}
+  function close(){sheet.classList.remove('open');document.body.classList.remove('locked');}
+  openB.addEventListener('click',open);
+  document.getElementById('applyClose').addEventListener('click',close);
+  document.getElementById('applyBack').addEventListener('click',function(){res.classList.remove('show');form.style.display='';sheet.scrollTop=0;});
+  function v(id){return document.getElementById(id).value.trim();}
+  var blob=null;
+  document.getElementById('applyMake').addEventListener('click',function(){
+    var err=document.getElementById('applyErr'),miss=[];
+    [['fAge','지원 연령'],['fChild','아이 이름'],['fBirth','아이 생년월일'],['fParent','보호자 이름'],['fAddr','주소'],['fPhone','전화번호']].forEach(function(f){if(!v(f[0]))miss.push(f[1]);});
+    if(!drawn)miss.push('서명');
+    if(miss.length){err.textContent=miss.join(', ')+'을(를) 채워 주세요.';return;}
+    if(!document.getElementById('fAgree').checked){err.textContent='개인정보 수집·이용에 동의해 주셔야 신청할 수 있어요.';return;}
+    err.textContent='';
+    var W=900,H=1320,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d');
+    g.fillStyle='#ffffff';g.fillRect(0,0,W,H);
+    g.fillStyle='#3f7a52';g.fillRect(0,0,W,14);
+    g.fillStyle='#1f2a22';g.textAlign='center';
+    g.font='700 44px "Gowun Batang","Nanum Myeongjo",serif';g.fillText('2027학년도 우선모집 현장접수 신청서',W/2,110);
+    g.font='500 26px "Noto Sans KR",sans-serif';g.fillStyle='#5d6b60';g.fillText('청남학원 부속 보나유치원',W/2,160);
+    var rows=[['지원 연령',v('fAge')],['아이 이름',v('fChild')],['아이 생년월일',v('fBirth').replace(/-/g,'. ')],['보호자 이름',v('fParent')],['주소',v('fAddr')],['보호자 전화번호',v('fPhone').replace(/[^0-9]/g,'').replace(/^(01[0-9])(\d{3,4})(\d{4})$/,'$1-$2-$3')]];
+    var y=220,lx=60,vx=300,rh=96;g.textAlign='left';g.strokeStyle='#dbe3d6';g.lineWidth=2;
+    rows.forEach(function(r){g.strokeRect(lx,y,W-120,rh);g.fillStyle='#e3efe5';g.fillRect(lx+1,y+1,vx-lx-2,rh-2);g.fillStyle='#1f2a22';g.font='700 28px "Noto Sans KR",sans-serif';g.fillText(r[0],lx+24,y+58);
+      g.font='400 30px "Noto Sans KR",sans-serif';var t=r[1],max=W-120-(vx-lx)-40;while(g.measureText(t).width>max&&t.length>1)t=t.slice(0,-1);if(t!==r[1])t=t.slice(0,-1)+'…';g.fillText(t,vx+20,y+58);y+=rh;});
+    y+=40;g.font='400 24px "Noto Sans KR",sans-serif';g.fillStyle='#5d6b60';
+    ['위 내용으로 2027학년도 우선모집 현장접수를 신청하며,','보나유치원을 1순위로 지원합니다. 유치원이 유보통합포털에','대리 등록하는 것과 개인정보 수집·이용에 동의합니다.'].forEach(function(l){g.fillText(l,lx,y);y+=38;});
+    var d=new Date(),ds=d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
+    y+=40;g.fillStyle='#1f2a22';g.font='500 28px "Noto Sans KR",sans-serif';g.textAlign='center';g.fillText(ds,W/2,y);
+    y+=40;var sw=320,sh=Math.round(sw*cv.height/cv.width),sx=W-60-sw;
+    g.textAlign='left';g.fillText('보호자  '+v('fParent'),lx,y+sh/2+10);g.fillStyle='#5d6b60';g.fillText('(서명)',sx-110,y+sh/2+10);
+    g.strokeStyle='#dbe3d6';g.strokeRect(sx,y,sw,sh);g.drawImage(cv,sx,y,sw,sh);
+    g.fillStyle='#3f7a52';g.fillRect(0,H-14,W,14);
+    var url=c.toDataURL('image/png');document.getElementById('applyImg').src=url;
+    var sv=document.getElementById('applySave');sv.href=url;
+    var sh2=document.getElementById('applyShare');sh2.hidden=true;blob=null;
+    c.toBlob(function(b){blob=b;try{var f=new File([b],'보나유치원_현장접수신청서.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]}))sh2.hidden=false;}catch(e){}});
+    form.style.display='none';res.classList.add('show');sheet.scrollTop=0;
+  });
+  document.getElementById('applyShare').addEventListener('click',function(){
+    if(!blob)return;var f=new File([blob],'보나유치원_현장접수신청서.png',{type:'image/png'});
+    navigator.share({files:[f],title:'현장접수 신청서'}).catch(function(){});
+  });
+  window.addEventListener('resize',function(){if(sheet.classList.contains('open')&&!drawn)size();});
+})();
+</script>
+
 
 
 </body>
