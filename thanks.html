@@ -212,6 +212,10 @@ nav a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid
 .intro button.enter{appearance:none;border:0;border-radius:999px;background:var(--leaf);color:var(--surface);font:700 17px/1 var(--body);padding:16px 34px;cursor:pointer;min-height:48px}
 .intro button.enter:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .intro .hint{font:400 13px/1.6 var(--body);color:var(--muted);margin:16px 0 0}
+.intro .hint.browser{margin-top:22px;word-break:keep-all}
+.intro [hidden]{display:none!important}
+.intro .hint.browser b{color:var(--ink);font-weight:700}
+.intro .inapp-intro{display:inline-flex;align-items:center;justify-content:center;margin-top:12px;min-height:44px;padding:0 20px;border-radius:999px;background:#fff6d6;border:1px solid #f1d98a;color:#1f2a22;font:700 15px var(--body);text-decoration:none}
 body.locked{overflow:hidden}
 .music{position:fixed;right:16px;bottom:16px;z-index:40;display:none;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:10px 14px;font:500 14px/1 var(--body);box-shadow:0 2px 10px rgba(0,0,0,.12);cursor:pointer;min-height:44px}
 .music.show{display:inline-flex}
@@ -275,6 +279,8 @@ body.sheet-open .sheet-in{padding-bottom:110px}
     <p class="sub">부모님께 전하고 싶은 이야기를<br>한 페이지에 담았습니다.</p>
     <button class="enter" id="enterBtn" type="button">들어가기</button>
     <p class="hint" id="musicHint" hidden>들어가시면 음악이 함께 나와요</p>
+    <p class="hint browser">아이폰은 <b>사파리</b>, 갤럭시는 <b>크롬</b>이나 <b>삼성 인터넷</b>으로 열어 주세요.<br>카카오톡 안에서 열렸다면 오른쪽 위 메뉴에서 "다른 브라우저로 열기"를 눌러 주세요.</p>
+    <a class="inapp-intro" id="introExt" href="#" hidden>크롬·사파리에서 열기</a>
   </div>
 </div>
 <audio id="bgm" loop preload="auto" data-src="thanks-music.mp3"></audio>
@@ -583,7 +589,7 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
   var ua=navigator.userAgent||'',inKakao=/KAKAOTALK/i.test(ua),inApp=!inKakao&&/Instagram|NAVER\(inapp|FBAN|FBAV|Line\/|DaumApps/i.test(ua);
   if(inKakao){var ext='kakaotalk://web/openExternal?url='+encodeURIComponent(location.href.split('#')[0]+'#apply');
     ['inappNote','inappNote2'].forEach(function(id){document.getElementById(id).hidden=false;});
-    ['inappOpen','inappOpen2'].forEach(function(id){document.getElementById(id).href=ext;});}
+    ['inappOpen','inappOpen2','introExt'].forEach(function(id){var el=document.getElementById(id);el.href=ext;el.hidden=false;});}
   else if(inApp){document.getElementById('inappNote3').hidden=false;}
   function open(){musicWasOn=false;if(bgm&&!bgm.paused&&mbtn){mbtn.click();musicWasOn=true;}sheet.classList.add('open');document.body.classList.add('sheet-open');form.style.display='';res.classList.remove('show');window.scrollTo(0,0);setTimeout(size,30);}
   function close(){if(musicWasOn&&bgm&&bgm.paused&&mbtn){mbtn.click();}musicWasOn=false;sheet.classList.remove('open');document.body.classList.remove('sheet-open');var t=document.getElementById('applyOpen');if(t)t.scrollIntoView({block:'center'});}
@@ -615,13 +621,16 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
     var y=220,lx=60,vx=300,rh=96;g.textAlign='left';g.strokeStyle='#dbe3d6';g.lineWidth=2;
     rows.forEach(function(r){g.strokeRect(lx,y,W-120,rh);g.fillStyle='#e3efe5';g.fillRect(lx+1,y+1,vx-lx-2,rh-2);g.fillStyle='#1f2a22';g.font='700 28px "Noto Sans KR",sans-serif';g.fillText(r[0],lx+24,y+58);
       g.font='400 30px "Noto Sans KR",sans-serif';var t=r[1],max=W-120-(vx-lx)-40;while(g.measureText(t).width>max&&t.length>1)t=t.slice(0,-1);if(t!==r[1])t=t.slice(0,-1)+'…';g.fillText(t,vx+20,y+58);y+=rh;});
-    y+=40;g.font='400 24px "Noto Sans KR",sans-serif';g.fillStyle='#5d6b60';
-    ['위 내용으로 2027학년도 우선모집 현장접수를 신청하며,','보나유치원을 1순위로 지원합니다. 유치원이 유보통합포털에','대리 등록하는 것과 개인정보 수집·이용에 동의합니다.'].forEach(function(l){g.fillText(l,lx,y);y+=38;});
+    y+=52;g.font='400 24px "Noto Sans KR",sans-serif';g.fillStyle='#3a463d';g.textAlign='center';
+    (function(){var words='위 내용으로 2027학년도 우선모집 현장접수를 신청하며, 보나유치원을 1순위로 지원합니다. 유치원이 유보통합포털에 대리 등록하는 것과 개인정보 수집·이용에 동의합니다.'.split(' '),line='',maxw=W-180,lines=[];
+      words.forEach(function(w){var t=line?line+' '+w:w;if(g.measureText(t).width>maxw&&line){lines.push(line);line=w;}else line=t;});if(line)lines.push(line);
+      lines.forEach(function(l){g.fillText(l,W/2,y);y+=36;});})();
     var d=new Date(),ds=d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일';
-    y+=40;g.fillStyle='#1f2a22';g.font='500 28px "Noto Sans KR",sans-serif';g.textAlign='center';g.fillText(ds,W/2,y);
-    y+=40;var sw=320,sh=Math.round(sw*cv.height/cv.width),sx=W-60-sw;
+    y+=28;g.fillStyle='#1f2a22';g.font='500 28px "Noto Sans KR",sans-serif';g.textAlign='center';g.fillText(ds,W/2,y);
+    y+=44;var sw=320,sh=Math.round(sw*cv.height/cv.width),sx=W-60-sw;
     g.textAlign='left';g.fillText('보호자  '+v('fParent'),lx,y+sh/2+10);g.fillStyle='#5d6b60';g.fillText('(서명)',sx-110,y+sh/2+10);
     g.strokeStyle='#dbe3d6';g.strokeRect(sx,y,sw,sh);g.drawImage(cv,sx,y,sw,sh);
+    g.textAlign='center';g.fillStyle='#7a867d';g.font='400 20px "Noto Sans KR",sans-serif';g.fillText('현장접수 취소를 원하시면 원으로 연락 주시면 처리해 드리겠습니다.',W/2,H-52);g.fillText('청남학원 부속 보나유치원 · 02-956-3197',W/2,H-26+2);
     g.fillStyle='#3f7a52';g.fillRect(0,H-14,W,14);
     var url=c.toDataURL('image/png');document.getElementById('applyImg').src=url;
     var sv=document.getElementById('applySave');sv.href=url;
