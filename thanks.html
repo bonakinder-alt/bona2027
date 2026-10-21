@@ -218,7 +218,8 @@ body.locked{overflow:hidden}
 
 /* 현장접수 신청서 */
 .apply-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;min-height:44px;padding:10px 18px;border-radius:999px;border:0;background:var(--leaf);color:var(--surface);font:700 15px/1.2 var(--body);cursor:pointer}
-.sheet{position:fixed;inset:0;z-index:60;background:var(--bg);overflow-y:auto;display:none}
+.sheet{display:none;background:var(--bg);min-height:100vh}
+body.sheet-open .wrap,body.sheet-open .music{display:none!important}
 .sheet.open{display:block}
 .sheet-in{max-width:480px;margin:0 auto;padding:16px 16px 40px}
 .sheet-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}
@@ -227,7 +228,11 @@ body.locked{overflow:hidden}
 .sheet .lead{color:var(--muted);font:400 14px/1.7 var(--body);margin:0 0 16px;word-break:keep-all}
 .fld{display:block;margin:0 0 14px}
 .fld span{display:block;font:700 14px/1.4 var(--body);color:var(--ink);margin-bottom:6px}
-.fld input,.fld select{width:100%;box-sizing:border-box;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:400 16px/1.4 var(--body)}
+.fld input,.fld select{width:100%;box-sizing:border-box;height:46px;padding:0 12px;margin:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink);font:400 16px/44px var(--body);-webkit-appearance:none;appearance:none;text-align:left}
+.fld input[type=date]{display:block;line-height:44px;color:var(--ink)}
+.fld input[type=date]::-webkit-date-and-time-value{text-align:left;margin:0;line-height:44px;height:44px}
+.fld input::-webkit-datetime-edit{padding:0}
+.fld select{background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
 .fld input:focus,.fld select:focus{outline:2px solid var(--leaf);outline-offset:1px}
 .sig-wrap{border:1px dashed var(--muted);border-radius:12px;background:#fff;touch-action:none}
 .sig-wrap canvas{display:block;width:100%;height:160px;border-radius:12px}
@@ -244,12 +249,12 @@ body.locked{overflow:hidden}
 .result .acts{display:grid;gap:10px}
 .result .acts a,.result .acts button{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;font:700 16px var(--body);text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .result .acts .kakao{background:#fee500;color:#191600;border-color:#fee500}
+.sheet [hidden]{display:none!important}
 .result .steps{font:400 14px/1.7 var(--body);color:var(--muted);margin:0 0 14px;padding-left:20px}
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink)}</style>
 </head>
 <body>
-
 
 
 <div class="intro" id="intro" role="dialog" aria-label="첫 화면">
@@ -286,12 +291,12 @@ body.locked{overflow:hidden}
   </div>
   <div class="result" id="applyResult">
    <p class="lead">신청서가 만들어졌어요. 아래 순서대로 보내 주세요.</p>
-   <ol class="steps"><li>"이미지 저장"을 누르거나, 아래 신청서 이미지를 길게 눌러 사진으로 저장해요.</li><li>"카카오톡 채널로 보내기"를 눌러 채팅창에 저장한 이미지를 올려요.</li><li>아이 주민등록번호는 접수 전에 원에서 전화로 확인해요.</li></ol>
+   <ol class="steps" id="applySteps"><li id="stepShare">"신청서 보내기·저장"을 누르면 공유 창이 열려요. 여기서 카카오톡을 고르면 바로 보낼 수 있고, "이미지 저장"을 고르면 사진첩에 저장돼요.</li><li id="stepSave">"이미지 저장"을 누르거나, 아래 신청서 그림을 길게 눌러 사진으로 저장한 뒤 "카카오톡 채널 열기"로 채팅창에 올려 주세요.</li><li>아이 주민등록번호는 접수 전에 원에서 전화로 확인해요.</li></ol>
    <img id="applyImg" alt="작성한 현장접수 신청서">
    <div class="acts">
+    <button type="button" id="applyShare" class="kakao" hidden>신청서 보내기·저장</button>
     <a id="applySave" download="보나유치원_현장접수신청서.png" href="#">이미지 저장</a>
-    <button type="button" id="applyShare" hidden>바로 공유하기</button>
-    <a class="kakao" href="https://pf.kakao.com/_xlhAVn/chat" target="_blank" rel="noopener">카카오톡 채널로 보내기</a>
+    <a id="applyKakao" href="https://pf.kakao.com/_xlhAVn/chat" target="_blank" rel="noopener">카카오톡 채널 열기</a>
     <button type="button" id="applyBack">내용 고치기</button>
    </div>
   </div>
@@ -553,11 +558,11 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
   ['pointerup','pointercancel','pointerleave'].forEach(function(t){cv.addEventListener(t,function(){down=false;});});
   document.getElementById('sigClear').addEventListener('click',size);
   var form=document.getElementById('applyForm'),res=document.getElementById('applyResult');
-  function open(){sheet.classList.add('open');document.body.classList.add('locked');form.style.display='';res.classList.remove('show');setTimeout(size,30);}
-  function close(){sheet.classList.remove('open');document.body.classList.remove('locked');}
+  function open(){sheet.classList.add('open');document.body.classList.add('sheet-open');form.style.display='';res.classList.remove('show');window.scrollTo(0,0);setTimeout(size,30);}
+  function close(){sheet.classList.remove('open');document.body.classList.remove('sheet-open');var t=document.getElementById('applyOpen');if(t)t.scrollIntoView({block:'center'});}
   openB.addEventListener('click',open);
   document.getElementById('applyClose').addEventListener('click',close);
-  document.getElementById('applyBack').addEventListener('click',function(){res.classList.remove('show');form.style.display='';sheet.scrollTop=0;});
+  document.getElementById('applyBack').addEventListener('click',function(){res.classList.remove('show');form.style.display='';window.scrollTo(0,0);});
   function v(id){return document.getElementById(id).value.trim();}
   var blob=null;
   document.getElementById('applyMake').addEventListener('click',function(){
@@ -587,13 +592,17 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
     g.fillStyle='#3f7a52';g.fillRect(0,H-14,W,14);
     var url=c.toDataURL('image/png');document.getElementById('applyImg').src=url;
     var sv=document.getElementById('applySave');sv.href=url;
-    var sh2=document.getElementById('applyShare');sh2.hidden=true;blob=null;
-    c.toBlob(function(b){blob=b;try{var f=new File([b],'보나유치원_현장접수신청서.png',{type:'image/png'});if(navigator.canShare&&navigator.canShare({files:[f]}))sh2.hidden=false;}catch(e){}});
-    form.style.display='none';res.classList.add('show');sheet.scrollTop=0;
+    var sh2=document.getElementById('applyShare'),kk=document.getElementById('applyKakao');sh2.hidden=true;blob=null;
+    try{var bin=atob(url.split(',')[1]),arr=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);blob=new Blob([arr],{type:'image/png'});
+      var f=new File([blob],'보나유치원_현장접수신청서.png',{type:'image/png'});
+      if(navigator.canShare&&navigator.canShare({files:[f]})){sh2.hidden=false;sv.style.display='none';kk.classList.remove('kakao');document.getElementById('stepSave').hidden=true;}
+      else{sv.style.display='';kk.classList.add('kakao');document.getElementById('stepShare').hidden=true;}
+    }catch(e){sv.style.display='';kk.classList.add('kakao');document.getElementById('stepShare').hidden=true;}
+    form.style.display='none';res.classList.add('show');window.scrollTo(0,0);
   });
   document.getElementById('applyShare').addEventListener('click',function(){
     if(!blob)return;var f=new File([blob],'보나유치원_현장접수신청서.png',{type:'image/png'});
-    navigator.share({files:[f],title:'현장접수 신청서'}).catch(function(){});
+    navigator.share({files:[f],title:'보나유치원 현장접수 신청서'}).catch(function(){});
   });
   window.addEventListener('resize',function(){if(sheet.classList.contains('open')&&!drawn)size();});
 })();
