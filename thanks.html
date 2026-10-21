@@ -255,6 +255,7 @@ body.sheet-open .sheet-in{padding-bottom:110px}
 .result .acts a,.result .acts button{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:12px;font:700 16px var(--body);text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
 .result .acts .kakao{background:#fee500;color:#191600;border-color:#fee500}
 .sheet [hidden]{display:none!important}
+.result .acts .savehint{font:400 13px/1.6 var(--body);color:var(--muted);margin:-2px 0 4px;word-break:keep-all}
 .inapp{background:#fff6d6;border:1px solid #f1d98a;border-radius:12px;padding:12px 14px;font:400 14px/1.6 var(--body);color:#1f2a22;margin:0 0 16px;word-break:keep-all}
 .inapp a,.inapp button{display:flex;align-items:center;justify-content:center;margin-top:10px;min-height:44px;border-radius:10px;background:#3f7a52;color:#fff;font:700 15px var(--body);text-decoration:none;border:0;width:100%;cursor:pointer}
 .fld small{display:block;margin-top:6px;font:400 13px/1.5 var(--body);color:var(--muted)}
@@ -307,6 +308,8 @@ body.sheet-open .sheet-in{padding-bottom:110px}
    <div class="acts">
     <button type="button" id="applyShare" class="kakao" hidden>신청서 보내기·저장</button>
     <a id="applySave" download="보나유치원_현장접수신청서.png" href="#">이미지 저장</a>
+    <button type="button" id="applyOpenImg">이미지만 새 창으로 열기</button>
+    <p class="savehint" id="saveHint" hidden>"이미지 저장"이 안 되면 "이미지만 새 창으로 열기"를 누른 뒤, 열린 그림을 길게 눌러 "이미지 다운로드(저장)"를 선택해 주세요. 이 페이지의 신청서 그림을 바로 길게 눌러도 돼요.</p>
     <a referrerpolicy="no-referrer" id="applyKakao" href="https://pf.kakao.com/_xlhAVn/chat" target="_blank" rel="noopener noreferrer">카카오톡 채널 열기</a>
     <button type="button" id="applyBack">내용 고치기</button>
    </div>
@@ -621,11 +624,12 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
     try{var bin=atob(url.split(',')[1]),arr=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)arr[i]=bin.charCodeAt(i);blob=new Blob([arr],{type:'image/png'});
       var f=new File([blob],'보나유치원_현장접수신청서.png',{type:'image/png'});
       try{if(sv.dataset.obj)URL.revokeObjectURL(sv.dataset.obj);var ou=URL.createObjectURL(blob);sv.href=ou;sv.dataset.obj=ou;}catch(e2){}
-      if(navigator.canShare&&navigator.canShare({files:[f]})){sh2.hidden=false;sv.style.display='none';kk.classList.remove('kakao');document.getElementById('stepSave').hidden=true;}
-      else{sv.style.display='';kk.classList.add('kakao');document.getElementById('stepShare').hidden=true;}
+      if(navigator.canShare&&navigator.canShare({files:[f]})){sh2.hidden=false;sv.style.display='none';document.getElementById('applyOpenImg').hidden=true;document.getElementById('saveHint').hidden=true;kk.classList.remove('kakao');document.getElementById('stepSave').hidden=true;}
+      else{sv.style.display='';kk.classList.add('kakao');document.getElementById('stepShare').hidden=true;document.getElementById('applyOpenImg').hidden=false;document.getElementById('saveHint').hidden=false;}
     }catch(e){sv.style.display='';kk.classList.add('kakao');document.getElementById('stepShare').hidden=true;}
     form.style.display='none';res.classList.add('show');window.scrollTo(0,0);
   });
+  document.getElementById('applyOpenImg').addEventListener('click',function(){var sv=document.getElementById('applySave');var w=window.open(sv.dataset.obj||sv.href,'_blank');if(!w)location.href=sv.dataset.obj||sv.href;});
   document.getElementById('applyShare').addEventListener('click',function(){
     if(!blob)return;var f=new File([blob],'보나유치원_현장접수신청서.png',{type:'image/png'});
     navigator.share({files:[f],title:'보나유치원 현장접수 신청서'}).catch(function(){});
