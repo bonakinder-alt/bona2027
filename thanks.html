@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="2027학년도 보나유치원 입학설명회 감사 안내">
+<meta property="og:description" content="입학 일정 · 접수 방법 · 통학 차량 · 자주 묻는 질문">
+<meta name="robots" content="noindex">
+<title>보나유치원 설명회 감사 안내</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+/* Layout: one narrow phone-first column, a letter at the top, then schedule as a dated track, steps, Q&A folds */
+:root{
+  --bg:#f6f8f3; --surface:#ffffff; --ink:#1f2a22; --muted:#5d6b60; --line:#dbe3d6;
+  --leaf:#3f7a52; --leaf-soft:#e3efe5; --sun:#f2c14e; --blank-bg:#fff1c7; --blank-ink:#7a4a00; --sky:#3b6fa3; --red:#c2453a; --z1:#dbe9f6; --z2:#e3efe5; --z3:#fbeccb; --z4:#f3e1e8; --r1:#3b6fa3; --r2:#3f7a52; --r3:#c98a12; --r4:#b5577a; --water:#bcd9ef; --hill:#d9e6d0; --mapbg:#faf6ec; --road:#e6dfcf;
+  --display:"Gowun Batang","Nanum Myeongjo",serif; --body:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141a16; --surface:#1c241e; --ink:#e7eee8; --muted:#a3b2a6; --line:#2f3b32;
+  --leaf:#86c79a; --leaf-soft:#22362a; --sun:#e9b949; --blank-bg:#4a3a12; --blank-ink:#ffe2a0; --sky:#7fb0e0; --red:#ef8a80; --z1:#1f3042; --z2:#22362a; --z3:#3d3418; --z4:#3a2630; --r1:#7fb0e0; --r2:#86c79a; --r3:#e9b949; --r4:#e59bb8; --water:#24435c; --hill:#25362b; --mapbg:#161c19; --road:#2e3631; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141a16; --surface:#1c241e; --ink:#e7eee8; --muted:#a3b2a6; --line:#2f3b32;
+  --leaf:#86c79a; --leaf-soft:#22362a; --sun:#e9b949; --blank-bg:#4a3a12; --blank-ink:#ffe2a0; --sky:#7fb0e0; --red:#ef8a80; --z1:#1f3042; --z2:#22362a; --z3:#3d3418; --z4:#3a2630; --r1:#7fb0e0; --r2:#86c79a; --r3:#e9b949; --r4:#e59bb8; --water:#24435c; --hill:#25362b; --mapbg:#161c19; --road:#2e3631; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.75;word-break:keep-all;overflow-wrap:break-word}
+.wrap{max-width:640px;margin:0 auto;padding-inline:18px;padding-block:24px 56px;display:flex;flex-direction:column;gap:44px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35}
+h2{font-size:1.5rem;display:flex;align-items:baseline;gap:10px}
+h2 small{font-family:var(--body);font-size:.75rem;letter-spacing:.08em;color:var(--leaf);font-weight:700}
+p{margin:0}
+section{display:flex;flex-direction:column;gap:16px}
+a{color:var(--leaf)}
+.draft{background:var(--blank-bg);color:var(--blank-ink);border-radius:10px;padding:10px 14px;font-size:.85rem}
+mark.b{background:var(--blank-bg);color:var(--blank-ink);padding:1px 6px;border-radius:4px;font-weight:500}
+nav{display:flex;flex-wrap:wrap;gap:8px}
+nav a{font-size:.85rem;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:4px 12px;color:var(--ink);background:var(--surface)}
+nav a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+/* letter */
+.letter{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px 22px;display:flex;flex-direction:column;gap:14px;position:relative;overflow:hidden}
+.letter::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:repeating-linear-gradient(90deg,var(--leaf) 0 22px,var(--sun) 22px 44px)}
+.letter .from{font-size:.85rem;color:var(--muted)}
+.letter h1{font-size:1.75rem}
+.sign{font-family:var(--display);text-align:right;color:var(--muted)}
+/* about */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pillar b{font-family:var(--display);font-size:1.08rem}
+.pillar span{font-size:.92rem;color:var(--muted)}
+.quote{font-family:var(--display);font-size:1.15rem;border-left:3px solid var(--sun);padding-left:14px}
+.classes{display:flex;flex-wrap:wrap;gap:8px;font-size:.9rem}
+.classes span{background:var(--leaf-soft);border-radius:8px;padding:4px 10px}
+/* timeline */
+.track{display:flex;flex-direction:column;gap:22px}
+.round{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.round h3{font-size:1.15rem;margin-bottom:10px}
+.round ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.round li{display:grid;grid-template-columns:4.2em 1fr;gap:12px;padding:10px 0;border-top:1px dashed var(--line);align-items:baseline}
+.round li:first-child{border-top:0}
+.round .k{font-size:.8rem;font-weight:700;color:var(--leaf);letter-spacing:.04em}
+.round .v{font-variant-numeric:tabular-nums;min-width:0}
+.round .v strong{font-size:1.05rem}
+.note{font-size:.88rem;color:var(--muted);background:var(--leaf-soft);border-radius:10px;padding:12px 14px}
+.ages{width:100%;border-collapse:collapse;font-size:.95rem;font-variant-numeric:tabular-nums}
+.ages th,.ages td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line)}
+.ages th{font-size:.8rem;color:var(--muted);font-weight:500}
+.tbl{overflow-x:auto}
+.cal{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.cal figcaption{font-family:var(--display);font-size:1.2rem;font-weight:700}
+.wk,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.wk span{text-align:center;font-size:.75rem;color:var(--muted)}
+.wk span:first-child{color:var(--red)}
+.d{min-height:52px;border-radius:8px;padding:4px;display:flex;flex-direction:column;gap:2px;font-variant-numeric:tabular-nums;min-width:0}
+.d b{font-size:.85rem;font-weight:500}
+.d i{font-style:normal;font-size:.62rem;line-height:1.2;font-weight:700}
+.grid .d:nth-child(7n+1):not([class*="-"]) b{color:var(--red)}
+.p-apply{background:var(--leaf);color:var(--surface)} .grid .p-apply b{color:var(--surface)}
+.g-apply{background:var(--sky);color:var(--surface)} .grid .g-apply b{color:var(--surface)}
+.p-result,.g-result{background:var(--sun);color:var(--ink)}
+.p-reg,.g-reg{background:var(--leaf-soft);color:var(--ink);outline:1.5px dashed var(--leaf);outline-offset:-2px}
+.legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:.78rem;color:var(--muted)}
+.legend .k{width:12px;height:12px;border-radius:3px;display:inline-block}
+.round h3 .sub{font-family:var(--body);font-size:.78rem;color:var(--muted);font-weight:400;margin-left:6px}
+.six{list-style:none;margin:0;padding:0;counter-reset:x;display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}
+.six li{counter-increment:x;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.six li::before{content:counter(x);width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.85rem;background:var(--sun);color:var(--ink)}
+.six li:nth-child(n+4)::before{background:var(--sky);color:var(--surface)}
+.six span{font-size:.88rem;color:var(--muted)}
+.after{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.after div{background:var(--leaf-soft);border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.after span{font-size:.92rem}
+.ages{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.ages li{display:flex;flex-direction:column;gap:2px;padding:12px 0;border-bottom:1px solid var(--line);overflow-wrap:normal}
+.ages .age{font-weight:700;white-space:nowrap}
+.ages .age em{font-style:normal;font-weight:400;color:var(--muted);margin-left:6px}
+.mapbox{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.map{width:100%;max-width:520px;height:auto;align-self:center;display:block}
+.map .bg{fill:var(--mapbg)}
+.map .hill{fill:var(--hill)} .map .hill2{fill:var(--surface);opacity:.8}
+.map .lm{fill:var(--muted);font:400 10px var(--body)}
+.map .water{fill:none;stroke:var(--water);stroke-width:9;stroke-linecap:round}
+.map .wl{fill:var(--sky);font:700 11px var(--body);text-anchor:middle}
+.map .road{fill:none;stroke:var(--road);stroke-width:8;stroke-linecap:round}
+.map .rl{fill:var(--muted);font:400 10px var(--body)}
+.map .z path{stroke:var(--surface);stroke-width:2}
+.map .zn{fill:var(--ink);font:700 16px var(--display);text-anchor:middle}
+.map .a4 .zn{font-size:14px}
+.map .zs{fill:var(--ink);font:400 10.5px var(--body);opacity:.85}
+.map .a1 path,.area.a1{fill:var(--z1);background:var(--z1)}
+.map .a2 path,.area.a2{fill:var(--z2);background:var(--z2)}
+.map .a3 path,.area.a3{fill:var(--z3);background:var(--z3)}
+.map .a4 path,.area.a4{fill:var(--z4);background:var(--z4)}
+.map .a1 .ai{fill:var(--r1)} .map .a2 .ai{fill:var(--r2)} .map .a3 .ai{fill:var(--r3)} .map .a4 .ai{fill:var(--r4)}
+.map .rt{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-dasharray:2 7}
+.map .r1{stroke:var(--r1)} .map .r2{stroke:var(--r2)} .map .r3{stroke:var(--r3)} .map .r4{stroke:var(--r4)}
+.map .st circle{fill:var(--mapbg);stroke:var(--muted);stroke-width:2}
+.map .st text{fill:var(--muted);font:400 10px var(--body);text-anchor:end} .map .st text.l{text-anchor:start}
+.map .kg circle{fill:var(--leaf)} .map .kg path{fill:var(--surface)} .map .kg text{fill:var(--leaf);font-size:9px;text-anchor:middle}
+.map .kgp rect{fill:var(--ink)} .map .kgp text{fill:var(--surface);font:700 12px var(--body);text-anchor:middle}
+.map .compass circle{fill:var(--surface);stroke:var(--line)} .map .compass path{fill:var(--red)} .map .compass text{fill:var(--muted);font:700 8px var(--body);text-anchor:middle}
+.busfacts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.busfacts span{background:var(--leaf-soft);border-radius:12px;padding:10px 12px;font-size:.92rem;text-align:center}
+.busfacts b{font-family:var(--display);font-size:1.05rem;color:var(--leaf)}
+.area b::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.area.a1 b::before{background:var(--r1)} .area.a2 b::before{background:var(--r2)} .area.a3 b::before{background:var(--r3)} .area.a4 b::before{background:var(--r4)}
+.mapbox figcaption{font-size:.75rem;color:var(--muted);text-align:center}
+.areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.area{border-radius:12px;padding:14px;display:flex;flex-direction:column;gap:4px;min-width:0;overflow-wrap:normal}
+.area b{font-family:var(--display);font-size:1.08rem}
+.stops{display:flex;flex-wrap:wrap;gap:6px}
+.stops i{font-style:normal;font-size:.85rem;background:var(--surface);border-radius:999px;padding:3px 10px;white-space:nowrap;opacity:.95}
+.more{display:flex;flex-direction:column;gap:10px}
+.more-t{margin:0;font-family:var(--display);font-size:1.05rem;color:var(--ink)}
+.links{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}
+.links a{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--ink);min-width:0}
+.links a span{font-size:.8rem;color:var(--muted);overflow-wrap:anywhere}
+.links a:focus-visible,.kakao:focus-visible,.cl a:focus-visible{outline:2px solid var(--sun);outline-offset:2px}
+.kakao{display:block;text-align:center;background:#fee500;color:#191919;font-weight:700;font-size:.95rem;border-radius:12px;padding:11px;text-decoration:none}
+.cl{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;background:rgba(255,255,255,.12);border-radius:12px;padding:2px 12px}
+.cl li{display:grid;grid-template-columns:3.3em 1fr auto;gap:6px;align-items:center;padding:10px 0;border-top:1px solid rgba(255,255,255,.22)}
+.cl li:first-child{border-top:0}
+.cl .lab{font-size:.78rem;opacity:.85;white-space:nowrap}
+.cl .num{color:var(--surface);font-weight:700;font-size:.95rem;font-variant-numeric:tabular-nums;min-width:0;text-decoration:none;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.contact > p:not(.hint):not(.addr){font-size:.88rem;line-height:1.65;margin:0}
+.cl .mail{font-size:.76rem;overflow:visible;text-overflow:clip;letter-spacing:0;white-space:normal}
+.cl .cp{font:inherit;font-size:.72rem;border:1px solid var(--surface);background:transparent;color:var(--surface);border-radius:999px;padding:2px 9px;cursor:pointer;opacity:.9}
+.contact .addr{margin:4px 0 0;display:flex;flex-direction:column;gap:1px;font-size:.88rem}
+.contact .addr span{font-size:.78rem;opacity:.85}
+.contact .hint{font-size:.74rem;opacity:.85;margin:0}
+.bigq{margin:0;font-family:var(--display);font-size:1.45rem;line-height:1.5;text-align:center;padding:22px 12px;border-top:2px solid var(--sun);border-bottom:2px solid var(--sun);text-wrap:balance}
+.tap{font-size:.82rem;color:var(--muted)}
+.chaps{display:flex;flex-direction:column;gap:10px}
+.chap{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:0 16px}
+.chap summary{cursor:pointer;list-style:none;display:grid;grid-template-columns:auto 1fr;gap:12px;padding:16px 0;align-items:start}
+.chap summary::-webkit-details-marker{display:none}
+.chap .no{font-family:var(--display);font-size:1.4rem;color:var(--leaf);line-height:1.2;font-variant-numeric:tabular-nums}
+.chap .tt{display:flex;flex-direction:column;gap:2px;min-width:0}
+.chap .tt b{font-family:var(--display);font-size:1.1rem;line-height:1.4}
+.chap .tt em{font-style:normal;font-size:.9rem;color:var(--muted)}
+.chap[open] summary{border-bottom:1px dashed var(--line)}
+.chap .body{padding:14px 0 18px;display:flex;flex-direction:column;gap:10px;font-size:.96rem}
+.qs{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.qs li{background:var(--leaf-soft);border-radius:10px;padding:8px 12px}
+.qs li::before{content:"? ";color:var(--leaf);font-weight:700}
+.bubbles{display:flex;flex-wrap:wrap;gap:8px}
+.bubbles span{background:var(--sun);color:var(--ink);border-radius:16px 16px 16px 4px;padding:6px 12px;font-size:.92rem;font-weight:500}
+.steps2{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.steps2 div{background:var(--leaf-soft);border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:2px}
+.steps2 span{font-size:.88rem;color:var(--muted)}
+.kids{background:var(--leaf-soft);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px}
+.kids h3{font-size:1.15rem}
+.kids ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.kids li{padding-left:1.4em;position:relative}
+.kids li::before{content:"";position:absolute;left:0;top:.6em;width:.7em;height:.7em;border-radius:50%;background:var(--sun)}
+.kids .slogan{font-family:var(--display);font-size:1.15rem;text-align:center;color:var(--leaf);line-height:1.6}
+.kids .slogan b{display:inline-block;margin-top:.35rem;font-size:1.3rem;color:var(--ink)}
+/* steps */
+.steps{list-style:none;margin:0;padding:0;counter-reset:s;display:flex;flex-direction:column;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start}
+.steps li::before{content:counter(s);width:32px;height:32px;border-radius:50%;background:var(--leaf);color:var(--surface);display:grid;place-items:center;font-weight:700;font-size:.95rem}
+.steps li div{min-width:0}
+.steps b{display:block}
+.steps span{color:var(--muted);font-size:.93rem}
+/* faq */
+.faq{display:flex;flex-direction:column;gap:8px}
+.cat{font-size:1.1rem;color:var(--leaf);margin-top:8px}
+.cats{display:flex;flex-wrap:wrap;gap:6px}
+.cats a{font-size:.8rem;text-decoration:none;background:var(--leaf-soft);color:var(--ink);border-radius:8px;padding:3px 10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:0 16px}
+.faq summary{cursor:pointer;padding:14px 0;font-weight:500;list-style:none;display:flex;gap:10px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";font-family:var(--display);color:var(--leaf);font-weight:700}
+.faq details[open] summary{border-bottom:1px dashed var(--line)}
+.faq details .a{padding:12px 0 16px;display:flex;flex-direction:column;gap:8px;font-size:.96rem}
+/* contact */
+.contact{background:var(--leaf);color:var(--surface);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:8px}
+.contact h2{color:var(--surface)}
+.contact .tel{font-size:1.6rem;font-weight:700;font-variant-numeric:tabular-nums;user-select:all}
+.contact button{align-self:flex-start;font:inherit;font-size:.85rem;border:1px solid var(--surface);background:transparent;color:var(--surface);border-radius:999px;padding:4px 14px;cursor:pointer}
+.tags{font-size:.8rem;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* 첫 화면(들어가기) + 음악 버튼 */
+.intro{position:fixed;inset:0;z-index:50;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:24px 16px;transition:opacity .6s ease}
+.intro.out{opacity:0;pointer-events:none}
+.intro-in{max-width:420px;width:100%;text-align:center}
+.intro .kicker{font:500 14px/1.6 var(--body);color:var(--muted);margin:0 0 14px}
+.intro h2{font:700 clamp(20px,5.6vw,26px)/1.45 var(--display);letter-spacing:-.01em;text-align:center;display:block;color:var(--ink);margin:0 0 14px;word-break:keep-all}
+.intro .sub{font:400 16px/1.7 var(--body);color:var(--muted);margin:0 0 32px;word-break:keep-all}
+.intro .leafline{width:48px;height:3px;border-radius:2px;background:var(--leaf);margin:0 auto 22px}
+.intro button.enter{appearance:none;border:0;border-radius:999px;background:var(--leaf);color:var(--surface);font:700 17px/1 var(--body);padding:16px 34px;cursor:pointer;min-height:48px}
+.intro button.enter:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.intro .hint{font:400 13px/1.6 var(--body);color:var(--muted);margin:16px 0 0}
+body.locked{overflow:hidden}
+.music{position:fixed;right:16px;bottom:16px;z-index:40;display:none;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:10px 14px;font:500 14px/1 var(--body);box-shadow:0 2px 10px rgba(0,0,0,.12);cursor:pointer;min-height:44px}
+.music.show{display:inline-flex}
+.music .dot{width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.music.on .dot{background:var(--leaf)}
+</style>
+<style>html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink)}</style>
+</head>
+<body>
+
+
+
+<div class="intro" id="intro" role="dialog" aria-label="첫 화면">
+  <div class="intro-in">
+    <p class="kicker">청남학원 부속 보나유치원</p>
+    <div class="leafline"></div>
+    <h2>2027학년도 입학설명회에<br>와 주셔서 감사합니다</h2>
+    <p class="sub">부모님께 전하고 싶은 이야기를<br>한 페이지에 담았습니다.</p>
+    <button class="enter" id="enterBtn" type="button">들어가기</button>
+    <p class="hint" id="musicHint" hidden>들어가시면 음악이 함께 나와요</p>
+  </div>
+</div>
+<audio id="bgm" loop preload="auto" data-src="thanks-music.mp3"></audio>
+<button class="music" id="musicBtn" type="button" aria-label="음악 끄기"><span class="dot"></span><span id="musicLabel">음악 끄기</span></button>
+<div class="wrap">
+
+
+<article class="letter" id="thanks">
+  <p class="from">2027학년도 입학설명회에 와 주신 부모님께</p>
+  <h1>귀한 걸음, 정말 감사합니다</h1>
+  <p>안녕하세요, 청남학원 부속 보나유치원입니다.😊</p>
+  <p>바쁘신 중에도 시간을 내어 설명회에 함께해 주셔서 진심으로 감사드립니다. 아이의 첫 학교를 고르는 일이 얼마나 신중한 일인지 저희도 잘 알고 있답니다.</p>
+  <p>설명회에서 미처 다 전하지 못한 이야기와 부모님들께서 많이 물어보신 질문, 그리고 입학 일정과 신청 방법을 이 한 페이지에 모았습니다. 접수 기간에 다시 꺼내 보실 수 있도록 저장해 두셔도 좋답니다.</p>
+  <p class="sign">청남학원 부속 보나유치원 원장 드림</p>
+</article>
+
+<nav aria-label="바로가기">
+  <a href="#about">유치원 소개</a><a href="#vision">교육 방향</a><a href="#schedule">입학 일정</a><a href="#howto">접수 방법</a><a href="#bus">통학 차량</a><a href="#faq">자주 묻는 질문</a><a href="#contact">교육상담</a>
+</nav>
+
+<section id="about">
+  <h2><small>ABOUT</small>보나유치원은 이런 곳이에요</h2>
+  <p>보나유치원은 서울 도봉구 해등로에 있는 학교법인 청남학원 부속 유치원입니다. 2024년부터 학교법인 유치원으로 새롭게 운영하며, 지금의 선생님들이 아이들과 함께 하루하루를 만들어 가고 있답니다.</p>
+  <p class="quote">많이 가르치는 교육보다, 아이 스스로 생각하고 질문하고 탐구하며 자기 생각을 표현하는 힘을 기르는 교육을 지향합니다.</p>
+  <div class="pillars">
+    <div class="pillar"><b>질문에서 시작하는 IB 교육</b><span>보나유치원은 IB 교육을 합니다. 하나의 탐구 주제를 정하고, 아이들의 궁금증을 하나씩 따라가며 함께 답을 찾아간답니다.</span></div>
+    <div class="pillar"><b>다중지능 8영역 멀티예술놀이터</b><span>언어, 논리수학, 공간, 신체, 예술, 대인관계, 자연탐구, 자기이해 영역을 골고루 경험하며 아이마다 다른 강점을 발견해요.</span></div>
+    <div class="pillar"><b>생각을 깨우는 재능수업 (브레인카드)</b><span>매일 오전, 브레인카드(플래시카드)를 보고, 듣고, 기억하는 두뇌 훈련 놀이로 하루를 열어요. 그림으로 떠올리는 우뇌의 힘과 말로 차근차근 생각하는 좌뇌의 힘을 고르게 쓰도록 돕는 두뇌 계발 수업이랍니다. 짧은 시간 눈과 귀를 모으는 연습이 매일 쌓이면서 집중력과 기억력, 관찰력을 키운답니다.</span></div>
+    <div class="pillar"><b>보나아이들 행복프로젝트</b><span>내 마음을 알고 말로 표현하는 것에서 시작해 친구의 마음을 이해하고 기다리는 법을 배우는 인성교육이에요.</span></div>
+  </div>
+  <p>놀며 배우고, 질문하며 생각하고, 함께 성장하는 보나 아이들. 아이의 오늘이 행복하고, 그 행복한 오늘이 단단한 내일로 이어지는 곳이 되겠습니다.</p>
+</section>
+
+<section id="vision">
+  <h2><small>VISION</small>보나유치원의 교육 방향</h2>
+  <p>유치원을 고를 때 교육 프로그램도, 환경도, 아이들이 하는 활동도 중요합니다. 하지만 그보다 먼저 살펴보아야 할 것이 있습니다.</p>
+  <blockquote class="bigq">이 유치원은 아이를<br>어떤 방향으로 바라보고 있을까?</blockquote>
+  <p>같은 프로그램을 해도 유치원이 어떤 철학으로 아이들을 이끄느냐에 따라 아이가 경험하는 배움은 달라집니다. 보나유치원은 많은 것을 가르치는 교육보다, 아이 스스로 생각하고 질문하고 탐구하며 자기 생각을 표현하는 힘을 기르는 교육을 지향합니다.</p>
+  <p class="tap">제목을 누르면 자세한 이야기가 펼쳐져요.</p>
+  <div class="chaps"><details class="chap"><summary><span class="no">01</span><span class="tt"><b>아이를 잘 가르친다는 것</b><em>더 많이, 더 빨리 알려 주는 것만이 잘 가르치는 것은 아닙니다.</em></span></summary><div class="body"><p>아이를 잘 가르친다는 것은 더 많은 것을, 더 어릴 때부터 빨리 알려 주는 것만을 의미하지 않습니다.</p><p>최근 유아 대상 영어학원 레벨테스트가 법으로 금지될 만큼, 어린 나이의 지나친 선행과 시험이 문제가 되고 있습니다.</p><p>아이마다 성장하는 속도가 다르고, 좋아하는 것도, 생각하고 표현하는 방법도 모두 다릅니다. 그래서 보나유치원은 아이들을 하나의 기준으로 바라보기보다 아이 한 명, 한 명의 생각과 가능성을 발견하는 것에서 교육을 시작합니다.</p><p>결과보다 그 안의 과정을 바라보고, 행동만 판단하기보다 그 행동 속에 담긴 마음을 이해하며, 아이들이 자기 생각을 편안하게 이야기하고 새로운 것에 도전할 수 있는 환경을 만들어 주는 것. 그것이 보나유치원이 생각하는 교육의 시작입니다.</p></div></details><details class="chap"><summary><span class="no">02</span><span class="tt"><b>AI 시대, 정답을 아는 것만으로는 충분하지 않습니다</b><em>좋은 답보다 먼저, 좋은 질문을 할 수 있는 아이로.</em></span></summary><div class="body"><p>이제는 궁금한 것이 생기면 질문 몇 번, 클릭 몇 번으로 수많은 정보와 답을 얻을 수 있는 시대가 되었습니다. 그렇다면 앞으로의 교육에서도 정답을 많이 외우는 것이 가장 중요할까요? 보나유치원은 그렇지 않다고 생각합니다.</p><ul class="qs"><li>무엇을 궁금해하는가?</li><li>어떤 질문을 할 수 있는가?</li><li>찾은 정보를 어떻게 판단할 것인가?</li><li>그 정보로 나만의 생각을 어떻게 만들어 낼 것인가?</li></ul><p>앞으로는 이런 힘이 더욱 중요해질 것입니다. 필요한 것은 AI와 경쟁하는 아이가 아니라, AI에 생각을 맡기는 대신 AI를 자기 생각을 넓히는 도구로 쓸 줄 아는 사람입니다.</p><p>무엇을 물어야 하는지 모르면 좋은 답을 얻기 어렵고, 답을 얻어도 그 답이 맞는지 스스로 판단하지 못하면 온전히 내 지식이 되기 어렵습니다. 그래서 보나유치원은 아이들에게 정답을 바로 알려 주기보다 자주 질문합니다.</p><div class="bubbles"><span>왜 그럴까?</span><span>너는 어떻게 생각해?</span><span>다른 방법은 없을까?</span><span>그렇게 생각한 이유는 무엇일까?</span></div><p>그리고 아이가 자기 생각을 이야기할 때까지 조금 기다려 줍니다. 정답을 알려 주는 교육에서 스스로 답을 찾아가는 교육으로. 보나유치원이 중요하게 생각하는 방향입니다.</p></div></details><details class="chap"><summary><span class="no">03</span><span class="tt"><b>IB 교육이 중요하게 바라보는 '탐구'</b><em>유아교육에서 탐구는 아이들의 일상 속에서 자연스럽게 시작됩니다.</em></span></summary><div class="body"><p>보나유치원의 교육 방향은 IB 교육에서 중요하게 다루는 탐구(Inquiry) 중심의 배움과 맞닿아 있습니다.</p><p>산책하다가 나뭇잎 색이 달라진 것을 발견했다면, “가을이라 색이 변한 거야.” 하고 바로 답을 알려 주기보다 이렇게 물어봅니다.</p><ul class="qs"><li>왜 색깔이 달라졌을까?</li><li>다른 나무의 잎도 똑같을까?</li><li>지난번에 봤을 때와 무엇이 달라졌을까?</li><li>우리가 직접 알아보려면 어떻게 하면 좋을까?</li></ul><p>그러면 아이들은 직접 관찰하고, 친구와 이야기하고, 그림으로 그리고, 말로 표현해 봅니다. 처음 생각과 다른 사실을 발견하면 생각을 다시 바꿔 보기도 하지요. 이 과정이 아이들에게 중요한 탐구의 경험이 됩니다.</p><p>IB 교육이 더 궁금하시면 <a href="https://blog.naver.com/nonak8282" target="_blank" rel="noopener">보나유치원 블로그</a>의 「IB교육이란? PYP부터 한국형 바칼로레아까지 쉽게 알아보기」 글을 읽어 보세요.</p></div></details><details class="chap"><summary><span class="no">04</span><span class="tt"><b>놀이 속에서 배우고, 경험 속에서 탐구합니다</b><em>무너진 블록을 다시 쌓는 짧은 놀이에도 배움이 모두 들어 있어요.</em></span></summary><div class="body"><p>친구와 높이 쌓은 블록이 갑자기 무너지면 아이들은 “왜 무너졌지?” 하고 다시 쌓아 봅니다. 더 넓게 쌓아 보고, 친구의 방법을 관찰하고, 또 무너지면 다른 방법으로 다시 시도합니다.</p><p>이 짧은 놀이 속에 관찰하고, 질문하고, 예측하고, 시도하고, 실패하고, 다시 도전하는 과정이 모두 들어 있습니다. 놀이 규칙을 정하며 서로 다른 생각을 맞추는 법을, 생각을 설명하며 표현하는 힘을, 다시 도전하며 쉽게 포기하지 않는 힘을 기릅니다.</p></div></details><details class="chap"><summary><span class="no">05</span><span class="tt"><b>모든 아이는 똑같은 방법으로 성장하지 않습니다</b><em>하워드 가드너의 다중지능 이론으로 아이마다 다른 강점을 발견합니다.</em></span></summary><div class="body"><p>하버드대학교 심리학자 하워드 가드너 박사의 다중지능 이론은 사람의 능력을 하나의 점수로 판단하지 않고, 사람마다 다양한 형태의 능력과 강점이 있다고 봅니다.</p><p>보나유치원이 다중지능을 중요하게 생각하는 이유는 아이를 몇 가지 유형으로 나누기 위해서가 아닙니다. 오히려 그 반대입니다. 다양한 경험을 충분히 하며 아이마다 가진 강점을 발견하고, 조금 약한 부분은 유아기에 부담 없이 경험하며 채워 가도록 돕기 위해서입니다.</p><p>“이 아이는 이것만 잘하는 아이야.”라고 단정하지 않습니다. 유아기는 가능성이 계속 열리고 변하는 시기이기 때문입니다. 강점은 더 키우고, 약한 부분은 충분히 경험해 균형 있게 자라도록 돕습니다. 모든 아이가 똑같이 잘해야 하는 것은 아닙니다. 아이들은 모두 다르고, 그 다름 속에 각자의 가능성이 있습니다.</p></div></details><details class="chap"><summary><span class="no">06</span><span class="tt"><b>사람답게 살아가는 힘, 보나아이들 행복프로젝트</b><em>AI 시대일수록 사람과 사람 사이의 힘이 더 중요해집니다.</em></span></summary><div class="body"><p>아무리 많이 알고 뛰어난 능력이 있어도, 친구의 마음을 이해하지 못하고 감정을 조절하지 못하고 다른 사람을 존중하는 법을 모른다면 행복하게 살아가기 어렵습니다.</p><p>보나유치원의 인성교육 ‘보나아이들 행복프로젝트’는 무조건 참고 양보하는 아이를 만드는 것이 아니라, 먼저 자기 마음을 아는 아이로 키우는 데서 시작합니다. 배려, 협력, 자립심, 감사, 존중, 창의, 이 여섯 가지 가치를 중심에 두고 있어요.</p><div class="steps2"><div><b>내 마음 알기</b><span>“나는 지금 속상해.”</span></div><div><b>친구 마음 생각하기</b><span>“친구도 속상했을 수 있겠구나.”</span></div><div><b>함께 살아가기</b><span>배려하고, 기다리고, 듣고, 말로 해결해요.</span></div></div><p>AI는 정보를 알려 주고 글을 써 주고 그림을 그려 줄 수 있습니다. 하지만 속상한 친구에게 먼저 다가가는 마음, 잘못했을 때 미안하다고 말하는 용기, 나와 다른 생각을 듣는 태도는 기술이 대신할 수 없습니다. 그래서 보나유치원은 생각하는 힘과 함께 사람과 함께 살아가는 힘도 길러 줍니다.</p></div></details></div>
+  <div class="kids">
+    <h3>보나유치원이 함께 키워 가고 싶은 아이</h3>
+    <ul><li>질문할 줄 아는 아이</li><li>자기 생각을 표현할 줄 아는 아이</li><li>자신의 강점을 알고 자신감을 가진 아이</li><li>친구의 마음을 이해하고 함께할 줄 아는 아이</li><li>새로운 기술을 주도적으로 쓰면서도 사람을 소중히 여기는 아이</li></ul>
+    <p class="slogan">놀며 배우고, 질문하며 생각하고,<br>다양하게 경험하며, 함께 성장하는<br><b>보나유치원 아이들</b></p>
+  </div>
+</section>
+
+<section id="schedule">
+  <h2><small>SCHEDULE</small>2027학년도 입학 일정</h2>
+  <figure class="cal" aria-label="2026년 11월 입학 일정 달력">
+    <figcaption>2026년 11월</figcaption>
+    <div class="wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+    <div class="grid"><div class="d "><b>1</b></div><div class="d p-apply" aria-label="11월 2일 우선 접수"><b>2</b><i>우선 접수</i></div><div class="d p-apply" aria-label="11월 3일 우선 접수"><b>3</b></div><div class="d p-apply" aria-label="11월 4일 우선 접수"><b>4</b></div><div class="d "><b>5</b></div><div class="d "><b>6</b></div><div class="d "><b>7</b></div><div class="d "><b>8</b></div><div class="d p-result" aria-label="11월 9일 우선 발표"><b>9</b><i>우선 발표</i></div><div class="d p-reg" aria-label="11월 10일 우선 등록"><b>10</b><i>우선 등록</i></div><div class="d p-reg" aria-label="11월 11일 우선 등록"><b>11</b></div><div class="d "><b>12</b></div><div class="d "><b>13</b></div><div class="d "><b>14</b></div><div class="d "><b>15</b></div><div class="d "><b>16</b></div><div class="d g-apply" aria-label="11월 17일 일반 접수"><b>17</b><i>일반 접수</i></div><div class="d g-apply" aria-label="11월 18일 일반 접수"><b>18</b></div><div class="d g-apply" aria-label="11월 19일 일반 접수"><b>19</b></div><div class="d g-apply" aria-label="11월 20일 일반 접수"><b>20</b></div><div class="d g-apply" aria-label="11월 21일 일반 접수"><b>21</b></div><div class="d g-apply" aria-label="11월 22일 일반 접수"><b>22</b></div><div class="d g-apply" aria-label="11월 23일 일반 접수"><b>23</b></div><div class="d "><b>24</b></div><div class="d "><b>25</b></div><div class="d g-result" aria-label="11월 26일 일반 발표"><b>26</b><i>일반 발표</i></div><div class="d g-reg" aria-label="11월 27일 일반 등록"><b>27</b><i>일반 등록</i></div><div class="d g-reg" aria-label="11월 28일 일반 등록"><b>28</b></div><div class="d g-reg" aria-label="11월 29일 일반 등록"><b>29</b></div><div class="d g-reg" aria-label="11월 30일 일반 등록"><b>30</b></div></div>
+    <div class="legend"><span class="k p-apply"></span>우선모집 <span class="k g-apply"></span>일반모집 <span class="k p-result"></span>발표(오후 3시) <span class="k p-reg"></span>등록</div>
+  </figure>
+  <div class="track">
+    <div class="round">
+      <h3>우선모집</h3>
+      <ol>
+        <li><span class="k">접수</span><span class="v"><strong>11월 2일(월) 오전 9시 ~ 4일(수) 오후 6시</strong></span></li>
+        <li><span class="k">발표</span><span class="v">11월 9일(월) 오후 3시 · 유치원에서도 개별 연락드려요</span></li>
+        <li><span class="k">등록</span><span class="v">11월 10일(화) 오전 9시 ~ 11일(수) 오후 6시</span></li>
+      </ol>
+    </div>
+    <div class="round">
+      <h3>일반모집 <span class="sub">우선모집 뒤 자리가 남을 때만</span></h3>
+      <ol>
+        <li><span class="k">접수</span><span class="v"><strong>11월 17일(화) 오전 9시 ~ 23일(월) 오후 6시</strong></span></li>
+        <li><span class="k">발표</span><span class="v">11월 26일(목) 오후 3시</span></li>
+        <li><span class="k">등록</span><span class="v">11월 27일(금) 오전 9시 ~ 30일(월) 오후 6시</span></li>
+      </ol>
+    </div>
+  </div>
+  <h3>보나유치원 모집 인원</h3>
+  <ul class="ages"><li><span class="age">만 3세 <em>2023년생</em></span><span class="cnt">2개 반 30명 (재원생 동생 약 15명 포함, 신입 약 15명)</span></li><li><span class="age">만 4세 <em>2022년생</em></span><span class="cnt">7명 추가 모집</span></li><li><span class="age">만 5세 <em>2021년생</em></span><span class="cnt">지금은 모집하지 않아요. 2월까지 재원생 변동 사항이 생기면 추가모집할 예정이에요.</span></li></ul>
+</section>
+
+<section id="howto">
+  <h2><small>HOW TO</small>꼭 알아 두실 다섯 가지</h2>
+  <ol class="steps">
+    <li><div><b>보나유치원을 1지망으로 써 주세요</b><span>세 곳까지 지원할 수 있지만, 저희 원은 1지망 지원자로 자리가 대부분 채워져 그동안 2지망 지원자는 선발되지 못했어요.</span></div></li>
+    <li><div><b>대부분 우선모집 대상이에요</b><span>법정 저소득층, 국가보훈, 북한이탈주민 가정에 더해, 방학동, 쌍문동 등 통학버스가 다니는 지역이나 걸어서 다닐 수 있는 가까운 곳에 사시면 우선모집으로 지원할 수 있어요.</span></div></li>
+    <li><div><b>현장접수 신청서를 권해 드려요</b><span>현장접수 신청서를 내 주시면 접수 첫날 시스템이 열리는 대로 원에서 학부모님 대신 등록해 드려요. 현장접수도 100% 합격은 아니고 똑같이 추첨으로 선발돼요. 다만 나중에 추가모집이나 빈자리가 생기면 우선 연락드려 입학을 도와드릴게요. 현장접수 신청을 원하시면 유치원으로 연락 주세요. 도와드리겠습니다.</span></div></li>
+    <li><div><b>선착순이 아니에요</b><span>접수 기간 안에만 내시면 마감 후 시스템이 자동 추첨합니다. 아침 9시에 서두르지 않으셔도 돼요.</span></div></li>
+    <li><div><b>선발된 뒤 등록까지 해야 끝이에요</b><span>발표만 확인하고 등록하지 않으면 선발이 취소돼요. 우선모집에서 선발되어 등록하면 일반모집에는 지원할 수 없어요.</span></div></li>
+  </ol>
+  <h3>온라인으로 직접 하실 때</h3>
+  <p>유보통합포털(enter.childinfo.go.kr) '유치원입학'에서 아래 순서로 진행해요. 우선모집 원서는 11월 2일 오전 9시부터 낼 수 있어요.</p>
+  <ol class="six"><li><b>회원가입</b><span>유보통합포털 '유치원입학'에서 보호자 회원가입을 해요.</span></li><li><b>자녀 정보 등록</b><span>우리 아이의 정보를 등록해요.</span></li><li><b>모집요강 확인</b><span>유치원을 검색해 모집 인원과 우선모집 조건을 확인해요. 10월 28일부터 볼 수 있어요.</span></li><li><b>희망 유치원 선택</b><span>1·2·3희망 순서로 골라요. '찜하기'로 미리 저장해 둘 수 있어요.</span></li><li><b>우선모집 자격 선택</b><span>해당하는 자격을 고르고 필요한 증빙서류를 확인해요.</span></li><li><b>결과 확인과 등록</b><span>발표일에 결과를 보고, 선발되면 등록 기간 안에 등록해요.</span></li></ol>
+  <h3>선발된 뒤에는</h3>
+  <p>주민등록등본 등 필요서류는 유치원 카카오톡 채널, 이메일, 유치원 휴대폰 문자로 보내 주시면 됩니다. 필요서류는 선발 후 다시 안내해 드려요.</p>
+  <h3>자리가 없을까 걱정되신다면</h3>
+  <p>도봉구 사립유치원은 약 16곳이고, 2023년생은 2022년생보다 약 120명 적습니다. 저출생으로 2026년 기준으로도 정원이 가득 찬 유치원은 저희 유치원을 빼면 한두 곳 정도뿐이고, 대부분 자리가 넉넉해요. 그래서 어느 유치원에도 못 가는 일은 크게 걱정하지 않으셔도 돼요. 다만 저희 보나유치원은 1지망이 아니면 선발되지 않을 수 있으니 꼭 1지망으로 선택해 주세요 💕</p>
+</section>
+
+<section id="bus">
+  <h2><small>BUS</small>통학 차량은 이렇게 다녀요</h2>
+  <p>유치원을 가운데 두고 방학동, 쌍문동, 창동과 우이천 주변까지 다닌답니다. 통학 차량 이용료는 따로 받지 않아요.</p>
+   <figure class="mapbox"><svg class="map" viewBox="0 0 360 440" role="img" aria-label="보나유치원 통학 차량이 다니는 동네 그림: 북쪽 방학동, 서쪽 쌍문동, 동쪽 창동, 남서쪽 우이천과 삼양로 일대">
+  <defs>
+    <symbol id="bus" viewBox="0 0 34 22"><rect x="1" y="1" width="32" height="16" rx="5" fill="var(--sun)"/><rect x="5" y="4" width="6" height="6" rx="1.5" fill="var(--mapbg)"/><rect x="13" y="4" width="6" height="6" rx="1.5" fill="var(--mapbg)"/><rect x="21" y="4" width="8" height="6" rx="1.5" fill="var(--mapbg)"/><circle cx="9" cy="18" r="3.4" fill="var(--ink)"/><circle cx="25" cy="18" r="3.4" fill="var(--ink)"/></symbol>
+    <symbol id="apt" viewBox="0 0 14 16"><rect x="1" y="3" width="6" height="12" rx="1"/><rect x="7" y="0.5" width="6" height="14.5" rx="1"/></symbol>
+  </defs>
+  <rect class="bg" x="0" y="0" width="360" height="440" rx="18"/>
+  <path class="hill" d="M0 92 L22 48 L40 70 L66 22 L96 74 L114 54 L140 96 Z"/>
+  <path class="hill2" d="M58 34 L66 22 L74 34 Z"/>
+  <text class="lm" x="18" y="112">도봉산·북한산 쪽</text>
+  <path class="water" d="M332 0 C318 60 344 120 328 180 S338 300 322 360 S330 420 326 440"/>
+    <path class="water" d="M0 318 C60 330 110 352 170 372 S280 410 330 432"/>
+    <path class="road" d="M128 20 C132 120 124 220 132 330"/>
+  <path class="road" d="M20 196 C110 186 220 196 318 186"/>
+  <text class="rl" x="136" y="40">도봉로</text><text class="rl" x="300" y="210">해등로</text>
+  <g class="z a1"><path d="M110 70 C150 36 270 34 300 70 C326 100 300 140 250 146 C200 152 140 150 118 126 C100 108 96 84 110 70Z"/><text class="zn" x="210" y="88">방학동</text><use href="#apt" class="ai" x="160" y="104" width="12" height="14"/><text class="zs" x="176" y="116">신동아·청구</text><use href="#apt" class="ai" x="160" y="122" width="12" height="14"/><text class="zs" x="176" y="134">거성학마을</text></g>
+  <g class="z a2"><path d="M18 206 C40 184 120 186 150 210 C176 232 160 290 120 302 C80 314 30 300 18 276 C8 256 6 220 18 206Z"/><text class="zn" x="80" y="232">쌍문동</text><use href="#apt" class="ai" x="34" y="246" width="12" height="14"/><text class="zs" x="50" y="258">한양·쌍문청구</text><use href="#apt" class="ai" x="34" y="266" width="12" height="14"/><text class="zs" x="50" y="278">성원·현대</text></g>
+  <g class="z a3"><path d="M190 222 C220 204 300 206 314 236 C328 270 312 320 268 330 C226 340 184 318 178 284 C174 258 172 234 190 222Z"/><text class="zn" x="250" y="250">창동</text><use href="#apt" class="ai" x="196" y="264" width="12" height="14"/><text class="zs" x="212" y="276">북한산아이파크</text><use href="#apt" class="ai" x="196" y="284" width="12" height="14"/><text class="zs" x="212" y="296">주공3단지·상아</text></g>
+  <g class="z a4"><path d="M14 352 C40 332 120 340 150 366 C170 384 150 420 110 426 C70 432 24 420 12 396 C4 380 2 362 14 352Z"/><text class="zn" x="82" y="374">우이천·삼양로</text><use href="#apt" class="ai" x="30" y="386" width="12" height="14"/><text class="zs" x="46" y="398">솔밭공원 쪽</text><use href="#apt" class="ai" x="30" y="404" width="12" height="14"/><text class="zs" x="46" y="416">강북구 삼양로</text></g>
+  <path class="rt r1" d="M178 172 C184 162 192 154 200 148"/>
+  <path class="rt r2" d="M164 196 C140 206 120 214 104 226"/>
+  <path class="rt r3" d="M192 204 C210 222 222 236 236 246"/>
+  <path class="rt r4" d="M168 210 C150 260 120 310 96 352"/>
+  <g transform="translate(116 282)"><rect x="0" y="0" width="30" height="15" rx="5" fill="var(--sun)"/><rect x="4" y="3" width="5" height="5" rx="1.2" fill="var(--mapbg)"/><rect x="11" y="3" width="5" height="5" rx="1.2" fill="var(--mapbg)"/><rect x="18" y="3" width="8" height="5" rx="1.2" fill="var(--mapbg)"/><circle cx="8" cy="16" r="3" fill="var(--ink)"/><circle cx="22" cy="16" r="3" fill="var(--ink)"/></g><g transform="translate(266 170)"><rect x="0" y="0" width="30" height="15" rx="5" fill="var(--sun)"/><rect x="4" y="3" width="5" height="5" rx="1.2" fill="var(--mapbg)"/><rect x="11" y="3" width="5" height="5" rx="1.2" fill="var(--mapbg)"/><rect x="18" y="3" width="8" height="5" rx="1.2" fill="var(--mapbg)"/><circle cx="8" cy="16" r="3" fill="var(--ink)"/><circle cx="22" cy="16" r="3" fill="var(--ink)"/></g>
+  <g class="st"><circle cx="318" cy="96" r="5"/><text x="306" y="100">방학역</text><circle cx="320" cy="346" r="5"/><text x="309" y="350">창동역</text><circle cx="174" cy="346" r="5"/><text x="184" y="350" class="l">쌍문역</text></g>
+  <text class="wl" x="344" y="250" transform="rotate(90 344 250)">중랑천</text><text class="wl" x="232" y="408" transform="rotate(16 232 408)">우이천</text>
+  <g class="kg"><circle cx="175" cy="192" r="19"/><path d="M164 196 L175 184 L186 196 L186 203 L164 203 Z"/><text x="175" y="200">★</text></g>
+  <g class="kgp"><rect x="198" y="198" width="76" height="22" rx="11"/><text x="236" y="213">보나유치원</text></g>
+  <g class="compass"><circle cx="330" cy="30" r="15"/><path d="M330 18 L335 31 L330 28 L325 31 Z"/><text x="330" y="42">N</text></g>
+</svg><figcaption>실제 지도가 아닌, 다니는 동네를 쉽게 보여 드리는 그림이에요.</figcaption></figure>
+  <div class="areas"><div class="area a1"><b>방학동</b><span class="stops"><i>방학 청구아파트</i><i>신동아 1차·2단지</i><i>동양크레오</i><i>거성학마을</i><i>무궁화어린이공원</i><i>방학1동 주민센터</i><i>선덕고 앞</i><i>대원제니스빌</i></span></div><div class="area a2"><b>쌍문동</b><span class="stops"><i>한양 1차·7차</i><i>성원아파트</i><i>현대아파트</i><i>삼익세라믹</i><i>금호 1차</i><i>미라보아파트</i><i>쌍문 청구</i><i>이안아파트</i><i>브라운스톤</i><i>영광교회</i><i>창경초</i></span></div><div class="area a3"><b>창동</b><span class="stops"><i>북한산 아이파크</i><i>신도브래뉴</i><i>주공3단지</i><i>상아아파트</i><i>현대홈시티</i><i>태영아파트</i><i>신창파출소</i><i>삼산교회</i></span></div><div class="area a4"><b>우이천·삼양로 일대</b><span class="stops"><i>우이천로 주변</i><i>솔밭공원 승윤노블리안</i><i>나너울카운티</i><i>강북구 삼양로(덕산맨션·성원그린)</i></span></div></div>
+  <p class="note">2026년 운행 기준이에요. 학기 시작 전, 입학하는 아이들 집 위치에 맞춰 전체 코스를 다시 조정하고, 정확한 탑승 시간은 2차 오리엔테이션 때 안내해 드려요. 우리 집 근처로 다니는지는 교육상담 전화로 물어봐 주세요.</p>
+</section>
+
+<section id="faq">
+  <h2><small>Q&amp;A</small>부모님들이 많이 물어보셨어요</h2>
+  <p>설명회 신청 시 부모님들께서 가장 많이 물어보신 질문을 모았습니다.</p>
+  <nav class="cats" aria-label="질문 분류"><a href="#faq1">적응과 생활</a><a href="#faq2">안전과 건강</a><a href="#faq3">차량과 급식</a><a href="#faq4">교육과 학습</a><a href="#faq5">소통과 행사</a></nav>
+  <h3 class="cat" id="faq1">적응과 생활</h3>
+  <div class="faq">
+    <details><summary>집에서 낮잠을 자던 아이인데, 유치원 일과에 낮잠 시간이 있나요?</summary><div class="a"><p>보나유치원은 일과 중에 별도의 낮잠 시간을 두고 있지 않습니다. 규칙적인 일과를 통해 초등학교 생활에 필요한 기초 체력과 생활 습관을 미리 연습하는 과정이기도 해요.</p><p>처음에는 걱정하시지만, 막상 아이들은 친구들과 즐겁게 활동하며 생각보다 훨씬 의젓하게 적응해 나간답니다.</p><p>다만 낮잠이 꼭 필요하거나 유독 피곤해하는 아이를 위해 교무실에 편안한 침대를 따로 마련해 두었습니다. 일과 중에 너무 힘들어할 때는 언제든 내려와 쉬거나 잠을 청할 수 있도록 살피고 있어요.</p></div></details>
+    <details><summary>아직 배변 훈련이 완벽하지 않은데, 대소변 실수는 어떻게 지도하시나요?</summary><div class="a"><p>배변 훈련은 아이마다 완성되는 시기가 다르고, 실수는 성장 과정의 일부예요. 원에서는 아이가 실수하더라도 절대 야단치거나 부끄럽게 하지 않습니다. 조용히 여벌 옷으로 갈아입히고 “괜찮아, 누구나 실수할 수 있어.” 하고 안심시켜요.</p><p>수업 전이나 놀이 후처럼 일정한 때마다 “화장실 다녀오자~” 하고 안내하고, 마려우면 언제든 말해도 된다는 것을 반복해서 알려 줍니다.</p><p>학기 초에는 긴장해서 화장실 때를 놓치거나 선생님께 말을 못 하는 아이도 있어요. 그래서 아이들의 신호를 세심하게 살피며 스스로 표현할 수 있도록 돕고 있으니 안심하셔도 됩니다.</p></div></details>
+    <details><summary>화장실에서 대소변 보는 것을 도와주시는 분이 계신가요?</summary><div class="a"><p>네, 계세요. 만 3세는 도우미 선생님께서 아이들의 화장실 이용을 곁에서 도와드리고 있어요.</p><p>화장실 칸마다 호출벨이 있어서, 혼자 하기 어려울 때는 벨을 눌러 담임 선생님이나 도우미 선생님을 부를 수 있어요. 아이가 도움이 필요할 때 언제든 선생님이 바로 갈 수 있으니 안심하셔도 됩니다.</p></div></details>
+    <details><summary>적응 기간이 있나요?</summary><div class="a"><p>네, 있어요. 만 3세는 일주일 정도 적응 등원 기간을 두고 있어요.</p><p>이 기간에는 아이들이 유치원과 친해질 수 있도록 아이들이 정말 좋아하는 공연과 행사 같은 즐거운 시간을 준비해요.</p><p>정확한 등원 일정과 2027년 학사일정은 2차 오리엔테이션 때 안내해 드릴게요.</p></div></details>
+    <details><summary>옷 입기나 신발 정리 같은 기본생활습관이 아직 부족한데, 원에서는 어떻게 지도하시나요?</summary><div class="a"><p>걸음마가 한 번에 완성되지 않듯이 기본생활습관도 아이마다 연습하며 익히는 과정이 필요해요. 원에서는 아이들의 속도에 맞춰 기다려 주며 스스로 해 볼 기회를 충분히 주고 있어요.</p><p>작은 성공을 할 때마다 “이제 발 넣는 것까지 혼자서 할 수 있구나!” 하고 구체적으로 칭찬해 주고, 충분히 할 수 있을 때까지 기다려 주며 작은 기본생활습관들을 가르치고 있습니다.</p><p>이렇게 배우다 보면 아이들도 뿌듯해하며 계속 스스로 해 보려 하거든요. 친구들과 생활하며 “나도 해 볼래!” 하는 마음도 자연스럽게 생기고요.</p><p>가정에서도 조금 느리더라도 아이가 직접 해 보는 시간을 주시면 좋아요. 외출 준비 시간을 10분 정도 여유 있게 잡으시고, “여기까지는 엄마가 해 줄게. 지퍼만 쭉 올려 보자.” 하며 조금씩 도전하게 해 주세요.</p></div></details>
+    <details><summary>아이가 낯가림이 심한데, 원 적응은 얼마나 걸릴까요?</summary><div class="a"><p>대부분의 아이는 1~2주면 안정적으로 적응하지만, 낯가림이 심하면 새로운 환경과 사람에 익숙해지는 데 조금 더 걸릴 수 있습니다. 선생님과 친구들, 반복되는 일과에 익숙해져 '여기는 안전한 곳'이라는 믿음이 생기면 안정적으로 적응해 나가요.</p><p>낯가림은 오히려 건강한 애착이 생겼다는 증거예요. 원에서는 아이의 감정에 먼저 공감해 “엄마 보고 싶지? 조금만 기다리면 곧 만날 수 있어.” 하고 마음을 읽어 주고, 좋아하는 놀잇감이나 활동으로 자연스럽게 관심을 돌립니다.</p><p>아이가 좋아하는 놀이나 활동을 알려 주시면 담임 선생님이 적응을 더 잘 도울 수 있어요.</p></div></details>
+    <details><summary>아이가 아침에 울면서 등원하면 어떻게 돌봐 주시나요? 가정에서 분리불안을 도울 방법도 있을까요?</summary><div class="a"><p>아이가 아침에 울면서 등원하는 모습은 아주 자연스러운 적응 과정입니다. 부모님과 떨어지는 게 처음이다 보니 불안해하는 건데요. 대부분의 아이가 1~2주, 길게는 3월 한 달 정도 이런 모습을 보이기도 해요.</p><p>중요한 건, 교실 안에 들어오면 생각보다 빨리 안정을 찾는다는 점이에요. 부모님과 함께 있을 때는 울지만 헤어지고 나서는 울음이 잦아들면서 친구들과 놀잇감에 관심을 보여요.</p><p>아이가 안정을 찾을 때까지 담임 선생님이 함께합니다.</p><p>가정에서 도와주실 수 있도록 오리엔테이션 때 '신입생 부모 가이드북'을 드릴 예정이에요. 분리불안과 관련된 내용이 들어 있으니 천천히 읽어 보시고 가정에서도 실천해 주세요. 한 달이 지나도 계속 힘들어한다면 개별 상담으로 아이에게 맞는 방법을 함께 찾아보겠습니다.</p></div></details>
+  </div>
+  <h3 class="cat" id="faq2">안전과 건강</h3>
+  <div class="faq">
+    <details><summary>원에서 안전사고가 생기면 어떻게 대처하시나요?</summary><div class="a"><p>신속하고 정확한 대처가 원칙이고, 세 단계로 움직입니다. 먼저 교사가 바로 초기 응급조치를 하고, 보호자께 신속히 연락드리며, 필요하면 의료기관이나 119와 연계해요. 연락드릴 때 사고 경위, 조치 내용, 아이의 상태를 자세히 알려 드립니다.</p><p>그 뒤에도 왜 그런 일이 생겼는지 꼼꼼히 기록하고, 원 구석구석을 다시 살펴 같은 일이 반복되지 않도록 보완합니다. 모든 선생님은 정기적으로 안전교육과 응급처치 교육을 받고 있어요.</p></div></details>
+    <details><summary>미세먼지나 폭염, 한파가 심할 때는 바깥놀이를 어떻게 하나요?</summary><div class="a"><p>매일 아침 미세먼지 수치와 날씨를 확인해 바깥놀이를 할지 정합니다. 미세먼지가 나쁜 날에는 교실에서 율동, 게임, 대근육 활동 같은 실내 신체활동으로 바꿔 에너지를 발산하도록 도와요.</p><p>폭염이나 한파가 심한 날에도 무리하게 밖에 나가지 않고, 꼭 필요할 때는 안전한 시간대에 짧게만 진행합니다.</p></div></details>
+    <details><summary>전염병이 돌면 어떻게 대처하나요? 등원 중지나 휴원도 하나요?</summary><div class="a"><p>전염병이 생기면 질병관리청 지침에 따라 대응합니다. 걸린 아이는 바로 격리를 요청드리고, 회복될 때까지 등원을 멈춘 뒤 완치 후 의사 소견서를 내야 다시 등원할 수 있어요.</p><p>사용한 교실과 공용 공간은 바로 소독하고, 같은 반 가정에는 발생 사실을 알려 아이 건강을 살피실 수 있도록 안내합니다. 원 전체로 퍼질 우려가 있으면 휴원이나 임시 등원 중지를 결정할 수 있다는 점도 알아 두세요.</p><p>전염병이 유행하는 시기에는 매일 키즈노트로 반별 감염 인원 상황을 익명으로 공지해 드려요.</p><p>평소에는 손 씻기, 기침 예절, 개인위생 습관을 일상에서 지도해요. 교실 바닥과 책상은 일과 후 매일, 교재·교구는 주 1회 소독 세정제와 자외선 살균기로 소독하고, 현관·복도·화장실·통학버스 같은 공용 공간은 세스코와 제휴해 매달 정기 소독을 하고 있어요. 환기는 하루 3회 이상 하고 공기청정기 필터도 갈아 줘요.</p></div></details>
+    <details><summary>원 안의 CCTV 설치와 열람은 어떻게 되나요? 사각지대는 없나요?</summary><div class="a"><p>보나유치원에는 CCTV가 16대 있어 도봉구 유치원 중 가장 많습니다. 아이들이 생활하는 모든 교실과 복도, 계단, 출입구, 조리실, 특별활동실, 놀이실 등 모든 공간에 있어요. 24시간 녹화되고, 30일 동안 보관한 뒤 자동으로 지워집니다.</p><p>사생활 보호가 필요한 화장실 안은 법 기준에 따라 설치하지 않았습니다. 대신 교사가 수시로 돌며 화장실과 사각지대를 꼼꼼히 살핍니다.</p><p>CCTV 열람은 사건이나 사고가 있을 때만이 아니라, 부모님께서 요청하시면 언제든 정해진 절차에 따라 확인하실 수 있어요.</p></div></details>
+    <details><summary>친구와 다투다 상처가 나거나 깨물리면 어떻게 알려 주시나요? 상대 부모님께도 알리나요?</summary><div class="a"><p>아이들이 자라며 다툼이 생기는 건 자연스러운 과정이에요. 상처가 생기면 아이 상태를 세심하게 확인하고 필요한 응급처치를 합니다. 그다음 양쪽 부모님께 상황을 안내드리고, 두 가정이 동의하시면 사과하는 시간도 마련해요.</p><p>누구의 잘잘못을 따지기보다 발달상 생길 수 있는 일임을 설명드리고 앞으로의 지도 방향을 안내합니다. 무엇보다 아이들의 관계 회복을 가장 먼저 생각해요.</p></div></details>
+    <details><summary>등·하원 때 인계는 누가 하나요? 데리러 가는 분이 바뀌면 어떻게 하나요?</summary><div class="a"><p>도보로 등원하는 아이는 현관 앞에서 교사가 직접 맞이하며 인계받습니다. 아침 컨디션 같은 특이사항은 차량 이용 아이는 키즈노트로, 도보로 등원하는 아이는 인계받는 교사에게 직접 전해 주세요. 등·하원 변동사항이 있을 때는 안전을 위해 키즈노트, 유치원 전화, 카카오톡 등으로 꼭 교사에게 알려 주시도록 안내하고 있어요.</p><p>하원은 미리 알려 주신 보호자에게만 인계합니다. 확실한 인계를 위해 키즈노트의 등·하원 귀가 동의서를 꼭 받고 있어요. 하원하실 분이나 하원 방법이 바뀌는 날에는 키즈노트 귀가 동의서를 꼭 작성해 주세요. 확인되지 않은 분께는 아이를 보내지 않습니다. 갑작스러운 상황이라도 보호자 확인은 반드시 거치니 가정에서도 꼭 협조해 주세요.</p></div></details>
+  </div>
+  <h3 class="cat" id="faq3">차량과 급식</h3>
+  <div class="faq">
+    <details><summary>차량에 안전벨트 말고 다른 안전장치도 있나요?</summary><div class="a"><p>모든 등·하원 차량은 어린이 통학버스 안전 기준에 맞춰 운영합니다. 차량마다 안전벨트와 하차 확인 장치가 기본으로 있어요.</p><p>등·하원 차량에는 항상 등하원 도우미 선생님이 함께 타서 아이가 벨트를 제대로 맸는지 확인한 뒤 출발합니다. 기사님은 운행 전 매일 벨트와 고장 난 곳이 없는지 점검하고, 차량은 매달 소독해요.</p><p>탈 때마다 인원과 안전벨트를 확인하고, 아이들이 모두 내린 뒤에는 차 안을 한 번 더 살펴 남은 아이가 없는지 확인합니다.</p><p>차량 이용이 처음이거나 특별히 신경 써야 할 부분이 있으면 언제든 말씀해 주세요.</p></div></details>
+    <details><summary>아이가 차멀미를 심하게 하는데, 창문을 열거나 앞자리에 태워 주실 수 있나요?</summary><div class="a"><p>맨 앞자리는 법적으로 아이가 앉을 수 없지만, 최대한 앞쪽 창가 자리에 앉도록 할게요. 좌석 근처 창문을 살짝 열어 바람이 통하게 하는 것도 가능합니다(안전을 위해 완전히 열지는 않아요). 날씨나 다른 아이들 컨디션에 따라 계속 열어 두기 어려운 날도 있는 점 양해 부탁드려요.</p><p>가정에서는 몸을 조이지 않는 편한 옷을 입혀 주시고, 너무 배고프지도 과식하지도 않은 상태로 보내 주세요.</p></div></details>
+    <details><summary>차량 시간에 늦으면 기다려 주시나요?</summary><div class="a"><p>모든 아이가 정해진 시간에 정류장에서 기다리고 있어 기다려 드리기 어려운 점 양해 부탁드려요. 정류장마다 1~2분씩 기다리면 뒤에 타는 아이들은 5~10분을 더 기다리게 됩니다. 차량을 놓친 날은 직접 등원시켜 주세요.</p><p>학기 초에는 차량 시간과 코스를 조정하는 기간이 필요해 바뀔 수 있으니 이 점도 양해 부탁드립니다.</p></div></details>
+    <details><summary>차량 시간과 탑승 장소를 가정의 사정에 맞춰 조정할 수 있나요?</summary><div class="a"><p>통학버스는 일반 노선버스처럼 유치원에서 출발하여 유치원으로 돌아오는 정해진 노선으로 운행합니다. 원아들의 거주 지역을 고려해 가장 효율적인 코스를 정하고, 한 아이가 차량에 머무는 시간이 최대 20~30분을 넘지 않도록 노선을 구성하고 있습니다.</p><p>아파트 동 앞이나 골목 안 가정집까지 개별로 운행하게 되면 전체 운행 시간을 지키기 어렵고, 아이들의 등원 시간에도 차질이 생깁니다. 또한 먼저 탑승한 아이가 차량에 머무는 시간이 길어지게 됩니다. 이러한 이유로 탑승 장소는 유치원과 부모님이 함께 조율하여 정하며, 가정별 시간이나 집 앞 운행은 어려운 점 양해 부탁드립니다.</p></div></details>
+    <details><summary>통학버스를 신청하지 않았는데, 필요한 날만 이용할 수 있나요?</summary><div class="a"><p>통학버스는 사전 신청을 받아 이용 명단을 정하고, 그 명단에 따라 운영하고 있습니다. 따라서 통학버스를 신청하지 않은 원아의 당일 이용은 안전을 위해 어렵습니다.</p><p>이용 명단이 날마다 달라지면 원아별 승하차 확인에 혼선이 생길 수 있고, 이는 안전사고로 이어질 수 있습니다. 아이들의 안전을 가장 먼저 생각한 운영 원칙이니 너그러운 이해 부탁드립니다.</p></div></details>
+    <details><summary>급식과 간식 식단은 어떻게 짜나요?</summary><div class="a"><p>점심은 도봉구 급식지원센터 전문 영양사 선생님이 유아 영양 기준에 맞춰 짠 식단을 바탕으로, 원에서 필요하면 세부 내용을 조정하고 검수해 구성합니다. 조리사 선생님이 제철 재료로 매일 신선하게 조리해요. 기본은 밥, 국, 반찬 세 가지입니다.</p><p>오전 간식과 오후 간식도 조리사 선생님이 직접 만드는 간식으로 준비합니다. 가공식품은 최대한 줄이고 직접 조리한 간식을 드리고 있어요. 국산 재료를 쓰는 것이 원칙입니다.</p><p>식재료는 매일 아침 검수하고, 급식은 매일 검식하며 보존식 샘플도 남겨 둡니다. 도봉구 급식센터와 교육청이 1~2개월마다 위생 점검도 해요. 식단은 매달 가정통신문이나 알림장으로 미리 알려 드리고, 매일 급식 사진도 키즈노트에 올려 드려요.</p></div></details>
+    <details><summary>아이가 특정 음식에 알레르기가 있는데 급식은 어떻게 관리하나요?</summary><div class="a"><p>입학할 때 별도 서류로 알레르기를 확인합니다. 오리엔테이션 때 받으신 서류에 꼭 적어 주세요. 제출하신 내용은 조리사, 영양사 선생님, 담임 교사가 모두 공유합니다.</p><p>보호자, 담임 교사, 조리사 선생님이 함께 협의해 대체식이나 제외식을 정하고, 식단표에도 표시해 드려요. 해당 재료가 들어가는 날에는 대체식을 따로 준비합니다. 친구들과 똑같이 못 먹어 속상해하지 않도록 “너를 위해 특별히 준비한 거야.” 하고 긍정적으로 받아들이게 도와줍니다. 매달 식단표를 보시고 걱정되는 메뉴가 있으면 언제든 말씀해 주세요.</p></div></details>
+    <details><summary>집에서 편식이 심한 편인데, 원에서는 어떻게 지도하시나요?</summary><div class="a"><p>억지로 먹이거나 강요하지 않는 것이 원칙이에요. 이 시기 아이들은 쓴맛이나 신맛에 민감해 편식하는 경우가 많아, 호기심을 갖고 스스로 먹어 보도록 돕습니다.</p><p>선생님이 함께 앉아 골고루 먹는 모습을 보여 주고 맛을 말로 표현하면, 아이들은 자연스럽게 궁금해해요. 한 입이라도 스스로 먹으면 “우와, 당근 먹었네? 대단한데?” 하고 칭찬해 성취감을 느끼게 합니다.</p></div></details>
+  </div>
+  <h3 class="cat" id="faq4">교육과 학습</h3>
+  <div class="faq">
+    <details><summary>IB 교육을 한다는데, 실제로 무엇을 하나요?</summary><div class="a"><p>하나의 탐구 주제를 정하면 아이들이 궁금한 것을 질문 목록으로 만들고, 그 질문을 하나씩 풀어 가며 함께 답을 찾아갑니다. 연령마다 일 년 동안 다루는 탐구 단원은 여섯 개예요. 만 3세는 ‘나와 내 가족’, ‘우리 동네’, ‘계절과 자연’처럼 아이 가까이에서 시작한답니다.</p><p>최근 예로 9월 희망찬·리더반은 「한글」에서 출발해 세종이야기 견학과 병풍 만들기를 거쳐 한글이 태어난 이야기로 마무리했답니다.</p></div></details>
+    <details><summary>멀티예술놀이터 특성화 수업에는 무엇이 있나요?</summary><div class="a"><p>다중지능 8영역에 맞춰 영어 / 씽커토이, 수학, 메타인지사이언스 / 바둑, 아트플레이, 코딩 / 유아체육, 발레, 방송댄스 / 뮤지컬, 피아노, 음악 / 글로벌키즈, 몬테소리 / 숲체험, 찾아오는 동물, 텃밭, 인성수업을 매주 돌아가며 해요.</p></div></details>
+    <details><summary>뮤지컬 수업은 어떤 수업인가요?</summary><div class="a"><p>보나유치원의 어린이 뮤지컬 수업은 단순히 춤과 노래를 배우는 것을 넘어, 아이들이 자신의 생각과 감정을 자유롭게 표현하고 친구들과 함께 하나의 이야기를 완성해 나가는 경험이에요.</p><p>뮤지컬 속에는 아이들 눈높이에 맞는 재미있는 이야기와 함께, 친구를 이해하고 배려하는 마음, 서로를 존중하는 태도, 용기와 자신감처럼 아이들이 자라면서 꼭 배워야 할 따뜻한 메시지가 담겨 있어요. 좋은 이야기를 듣고, 말하고, 노래하고, 연기하는 과정에서 아이들은 작품 속 메시지를 단순히 배우는 것이 아니라 자연스럽게 느끼고 자신의 것으로 만들어 간답니다.</p><p>대사를 기억하고 표현하면서 집중력과 언어 표현력이 자라고, 노래와 동작을 맞춰 가며 리듬감과 신체 표현력을 길러요. 친구를 기다리고 배려하는 협동심도 자연스럽게 배워 가지요. 자신의 감정을 목소리와 몸짓으로 당당하게 표현해 보는 경험은 아이들에게 소중한 자신감과 성취감을 선물해요.</p><p>뮤지컬 수업은 그 이야기와 이어지는 문해력 수업으로 함께 이어진답니다.</p></div></details>
+    <details><summary>초등학교 입학 전에 한글이나 영어를 어느 정도 가르치나요?</summary><div class="a"><p>유아기 교육과정은 놀이 중심이라, 책상에 앉아 공부하기보다 놀이 속에서 배움이 스며들도록 구성합니다.</p><p>영어는 원어민 선생님과 이중언어 선생님이 계시고, 담임 선생님과는 매일 영어를 진행합니다. 노래, 게임, 스토리텔링처럼 놀이로 진행해 영어를 즐겁게 느끼도록 해요.</p><p>7세부터는 초등 생활에 꼭 필요한 기초 문해력과 수 개념을 기를 수 있도록 학습 비중을 조금 더 둡니다.</p><p>초등학교에 가서도 잘 적응할 수 있도록 준비하고 있습니다. 보나유치원 출신 친구들이 초등학교에서 잘한다고 소문이 자자해요.</p></div></details>
+    <details><summary>한글 공부나 미디어 시청에 대한 집과 원의 방식이 다르면 어떻게 하나요?</summary><div class="a"><p>가정마다 교육관이 다르기에 원에서 일방적으로 강요하기보다 부모님과 충분히 이야기하며 조율합니다. 방식이 크게 다르다면 “집에서는 이렇게, 원에서는 이렇게 하는 거야.” 하고 분명히 설명해 주세요. 아이들은 상황마다 다른 규칙을 생각보다 잘 이해한답니다.</p><p>보나유치원은 놀이 중심으로 수업하고 미디어 시청은 최소화합니다. 전자칠판과 패드 수업(만 5세)은 정해진 수업 시간에만 쓰고, 만 3세는 패드 수업을 하지 않아요.</p></div></details>
+    <details><summary>아이가 좋아하는 놀이에만 계속 매달리는데 괜찮을까요?</summary><div class="a"><p>한 가지에 집중하는 건 그 활동으로 깊이 배우고 있다는 신호예요. 억지로 다른 활동을 시키기보다 먼저 그 흥미를 존중하고, 그 놀이 안에서 새로운 시도로 넓어지도록 함께 놀아 줍니다.</p></div></details>
+    <details><summary>훈육은 어떻게 하시나요?</summary><div class="a"><p>실수나 잘못도 배움의 기회가 되도록 따뜻하게 지도합니다. 먼저 아이의 이야기를 들어요. 아이들의 행동에는 다 이유가 있거든요.</p><p>그다음 “이렇게 하면 친구가 속상해.”처럼 행동의 결과를 이야기하고, “다음엔 어떻게 하면 좋을까?” 하며 올바른 방법을 함께 찾습니다. 같은 행동이 반복되면 관찰 기록을 남기고 부모님과 상담해요.</p></div></details>
+    <details><summary>원에서 배우는 내용이 초등 교육과정과 이어지나요?</summary><div class="a"><p>네. 지금의 유아 교육과정인 누리과정은 초등학교와의 연계를 고려해 만들어졌어요. 초등 1학년 과정도 듣고 이해하기, 협동해 문제 해결하기, 생활 습관 기르기, 수 개념 익히기처럼 공부의 바탕이 되는 힘을 중요하게 봅니다.</p><p>특히 7세 반은 20분 이상 앉아 선생님 말씀에 집중하기, 스스로 내 물건 챙기기도 연습해요. 초등 연계에는 학교생활에 즐겁게 적응하는 힘을 기르는 것도 들어 있답니다.</p></div></details>
+  </div>
+  <h3 class="cat" id="faq5">소통과 행사</h3>
+  <div class="faq">
+    <details><summary>원 운영에 대한 의견을 전할 공식 창구가 있나요?</summary><div class="a"><p>보나유치원은 키즈노트, 카카오톡 채널, 학부모 운영위원회를 통해 부모님과 소통하고, 매 학기 담임 선생님과 개별 상담을 진행해요. 전화로도 편하게 의견을 전하실 수 있어요. 선생님 개인 번호는 공개하지 않지만 반마다 반 휴대폰이 있습니다.</p><p>오전 10시부터 오후 3시 30분까지는 담임 선생님이 아이들에게 집중하는 시간이라 전화나 문자를 주고받지 않습니다. 급한 일은 교무실 전화, 유치원 대표 휴대폰, 키즈노트로 전해 주시고, 오후 3시 30분 이후에는 담임 선생님과 자유롭게 연락하실 수 있어요.</p><p>직접 방문하실 때는 미리 예약해 주세요. 매 학기 학부모 만족도 조사에서도 의견을 적으실 수 있습니다. 카카오톡에서 '보나유치원'을 검색해 채널을 추가해 주세요.</p><p>또 보나유치원은 학부모 운영위원회가 잘 운영되고 있어요. 각 학년 운영위원님께 의견을 전해 주시면 회의를 통해 최대한 듣고 반영하고 있습니다.</p></div></details>
+    <details><summary>부모 참여수업이나 부모교육이 자주 있나요? 수업 참관도 되나요?</summary><div class="a"><p>아이들의 집중과 교실의 안정을 위해 상시 참관은 어렵지만, 학기당 1회 부모 참여수업이 있어요. 한 번은 참관수업, 한 번은 운동회나 가족여행 같은 가족행사로 진행하며 바뀔 수 있습니다.</p><p>부모교육은 2026년에 분기마다 줌 실시간 연수로 했고, 4분기에는 오프라인 부모교육을 계획하고 있어요. 2027년에도 온라인과 오프라인을 함께 운영할 예정입니다. 교육청이나 구청 부모교육도 키즈노트로 알려 드려요.</p></div></details>
+    <details><summary>아이가 하루를 어떻게 보냈는지 궁금해요. 활동 사진은 얼마나 자주 올라오나요?</summary><div class="a"><p>활동 사진은 주 1~2회 간단한 설명과 함께 알림장으로 공유해요. 사진을 위해 활동을 멈추거나 포즈를 요구하지 않고 자연스러운 순간을 담기 때문에, 표정이 굳었거나 고개를 숙인 사진도 있을 수 있어요. '우리 아이가 그만큼 집중하고 있구나' 하고 편하게 봐 주세요.</p><p>월말이나 학기 말에는 그동안의 활동을 모은 활동저널을 보내 드리고, 학기 말에는 놀이일지와 사진·영상 기록을 모은 성장 포트폴리오도 드려요. 아이와 함께 보며 유치원 이야기를 나눠 보세요.</p><p>월간 일정, 견학, 상담 주간 같은 소식은 주 1회 가정통신문으로 알려 드립니다.</p></div></details>
+    <details><summary>행사에 부모 모두 참여해야 하는 경우가 많나요?</summary><div class="a"><p>대부분의 행사는 한 분만 오셔도 충분해요. 졸업식, 운동회 같은 큰 행사는 가족이 함께 오시면 아이에게 더 특별한 추억이 됩니다. 필수는 아니고 조부모님이나 다른 가족이 오셔도 괜찮아요.</p></div></details>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2>더 궁금하신 점이 있으시면</h2>
+  <p>언제든 편하게 연락 주세요.<br>2027학년도 예비 보나 친구들과 학부모님들을 기다리고 있겠습니다.</p>
+  <a class="kakao" href="https://pf.kakao.com/_xlhAVn" target="_blank" rel="noopener">카카오톡 채널로 문의하기</a>
+  <p class="hint">연결되지 않으면 카카오톡 앱에서 '보나유치원'을 검색해 채널을 추가해 주세요.</p>
+  <ul class="cl">
+    <li><span class="lab">교육상담</span><a class="num" href="tel:029563197">02-956-3197</a><button type="button" class="cp" data-v="02-956-3197">복사</button></li>
+    <li><span class="lab">휴대폰</span><a class="num" href="tel:01097915654">010-9791-5654</a><button type="button" class="cp" data-v="010-9791-5654">복사</button></li>
+    <li><span class="lab">이메일</span><span class="num mail">bonakinder@<wbr>bonakind.com</span><button type="button" class="cp" data-v="bonakinder@bonakind.com">복사</button></li>
+    <li><span class="lab">팩스</span><span class="num">02-6455-3944</span><button type="button" class="cp" data-v="02-6455-3944">복사</button></li>
+  </ul>
+  <p class="hint">휴대폰에 따라 번호를 눌러도 전화가 바로 걸리지 않을 수 있어요. 그럴 땐 복사 버튼을 누른 뒤 전화 앱에 붙여 넣어 걸어 주세요.</p>
+  <p class="addr"><b>서울시 도봉구 해등로 307</b><span>청남학원 부속 보나유치원</span></p>
+</section>
+
+<section class="more" aria-label="보나유치원 채널">
+  <p class="more-t">보나유치원 소식 더 보기</p>
+  <div class="links">
+    <a href="https://www.bonakinder.com/" target="_blank" rel="noopener"><b>홈페이지</b><span>bonakinder.com</span></a>
+    <a href="https://blog.naver.com/nonak8282" target="_blank" rel="noopener"><b>블로그</b><span>네이버 블로그</span></a>
+    <a href="https://www.instagram.com/bonakinder/" target="_blank" rel="noopener"><b>인스타그램</b><span>@bonakinder</span></a>
+    <a href="https://www.youtube.com/@bonakinder" target="_blank" rel="noopener"><b>유튜브</b><span>@bonakinder</span></a>
+  </div>
+</section>
+
+</div>
+<script>
+document.querySelectorAll('.cp').forEach(function(b){b.addEventListener('click',function(){
+  var t=b.getAttribute('data-v'),num=b.parentNode.querySelector('.num');
+  function sel(){var r=document.createRange();r.selectNodeContents(num);var g=getSelection();g.removeAllRanges();g.addRange(r);b.textContent='선택됨';}
+  try{navigator.clipboard.writeText(t).then(function(){b.textContent='복사했어요'},sel);}catch(e){sel()}
+});});
+</script>
+<script>
+document.querySelectorAll('#faq details').forEach(function(d){d.addEventListener('toggle',function(){
+  if(d.open){document.querySelectorAll('#faq details[open]').forEach(function(o){if(o!==d)o.open=false;});}
+});});
+document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEventListener('toggle',function(){
+  if(!d.open)return;
+  document.querySelectorAll('#vision details.chap[open]').forEach(function(o){if(o!==d)o.open=false;});
+  if(d.getBoundingClientRect().top<0)d.scrollIntoView({block:'start'});
+});});
+</script>
+<script>
+(function(){
+  var intro=document.getElementById('intro'),btn=document.getElementById('enterBtn'),
+      a=document.getElementById('bgm'),mb=document.getElementById('musicBtn'),lab=document.getElementById('musicLabel');
+  var src=a.getAttribute('data-src');
+  if(src){a.src=src;document.getElementById('musicHint').hidden=false;}
+  document.body.classList.add('locked');
+  function set(on){mb.classList.toggle('on',on);lab.textContent=on?'음악 끄기':'음악 켜기';mb.setAttribute('aria-label',lab.textContent);}
+  btn.addEventListener('click',function(){
+    intro.classList.add('out');document.body.classList.remove('locked');
+    setTimeout(function(){intro.style.display='none';},650);
+    if(!src)return;
+    mb.classList.add('show');
+    var p=a.play();if(p&&p.then){p.then(function(){set(true)},function(){set(false)});}else{set(true);}
+  });
+  mb.addEventListener('click',function(){
+    if(a.paused){var p=a.play();if(p&&p.catch)p.catch(function(){});set(true);}else{a.pause();set(false);}
+  });
+})();
+</script>
+
+
+</body>
+</html>
