@@ -218,6 +218,9 @@ body.locked{overflow:hidden}
 .music.on .dot{background:var(--leaf)}
 
 /* 현장접수 신청서 */
+.applybox{background:var(--leaf-soft);border-radius:14px;padding:22px;gap:10px}
+.applybox p{margin:0;font-size:.95rem;line-height:1.7;word-break:keep-all}
+.applybox .apply-btn{align-self:flex-start;margin-top:4px}
 .apply-btn{display:inline-flex;align-items:center;justify-content:center;margin-top:10px;min-height:44px;padding:10px 18px;border-radius:999px;border:0;background:var(--leaf);color:var(--surface);font:700 15px/1.2 var(--body);cursor:pointer}
 .sheet{display:none;background:var(--bg);min-height:100vh}
 body.sheet-open .wrap{display:none!important}
@@ -383,7 +386,7 @@ body.sheet-open .sheet-in{padding-bottom:110px}
   <ol class="steps">
     <li><div><b>보나유치원을 1지망으로 써 주세요</b><span>세 곳까지 지원할 수 있지만, 저희 원은 1지망 지원자로 자리가 대부분 채워져 그동안 2지망 지원자는 선발되지 못했어요.</span></div></li>
     <li><div><b>대부분 우선모집 대상이에요</b><span>법정 저소득층, 국가보훈, 북한이탈주민 가정에 더해, 방학동, 쌍문동 등 통학버스가 다니는 지역이나 걸어서 다닐 수 있는 가까운 곳에 사시면 우선모집으로 지원할 수 있어요.</span></div></li>
-    <li><div><b>현장접수 신청서를 권해 드려요</b><span>현장접수 신청서를 내 주시면 접수 첫날 시스템이 열리는 대로 원에서 학부모님 대신 등록해 드려요. 현장접수도 100% 합격은 아니고 똑같이 추첨으로 선발돼요. 다만 나중에 추가모집이나 빈자리가 생기면 우선 연락드려 입학을 도와드릴게요. 현장접수는 보나유치원 1순위로 접수되며, 입학 확정은 아닙니다. 혹시라도 현장접수를 원하시면 아래를 통해 신청하실 수 있습니다. 현장접수는 원서접수 마감 전까지만 접수 가능합니다. 현장접수 후 취소를 원하시면 유치원으로 연락 주시면 취소해 드립니다.<br><button class="apply-btn" type="button" id="applyOpen">현장접수 신청서 작성하기</button></span></div></li>
+    <li><div><b>현장접수 신청서를 권해 드려요</b><span>현장접수 신청서를 내 주시면 접수 첫날 시스템이 열리는 대로 원에서 학부모님 대신 등록해 드려요. 현장접수도 100% 합격은 아니고 똑같이 추첨으로 선발돼요. 다만 나중에 추가모집이나 빈자리가 생기면 우선 연락드려 입학을 도와드릴게요. 설명회 현장에서 현장접수를 못 하셨다면 이 페이지 아래쪽 <a href="#apply">현장접수 신청</a>에서 하실 수 있어요.</span></div></li>
     <li><div><b>선착순이 아니에요</b><span>접수 기간 안에만 내시면 마감 후 시스템이 자동 추첨합니다. 아침 9시에 서두르지 않으셔도 돼요.</span></div></li>
     <li><div><b>선발된 뒤 등록까지 해야 끝이에요</b><span>발표만 확인하고 등록하지 않으면 선발이 취소돼요. 우선모집에서 선발되어 등록하면 일반모집에는 지원할 수 없어요.</span></div></li>
   </ol>
@@ -486,6 +489,12 @@ body.sheet-open .sheet-in{padding-bottom:110px}
   </div>
 </section>
 
+<section class="applybox" id="apply">
+  <h2><small>APPLY</small>현장접수를 원하시면</h2>
+  <p>설명회 현장에서 현장접수를 못 하셨지만 현장접수를 원하시면 아래를 통해 접수해 주세요. 현장접수는 보나유치원 1순위로 접수되며, 입학 확정은 아니고 똑같이 추첨으로 선발됩니다. 현장접수는 원서접수 마감 전까지만 접수 가능하며, 접수 후 취소를 원하시면 유치원으로 연락 주시면 취소해 드립니다.</p>
+  <button class="apply-btn" type="button" id="applyOpen">현장접수 신청서 작성하기</button>
+</section>
+
 <section class="contact" id="contact">
   <h2>더 궁금하신 점이 있으시면</h2>
   <p>언제든 편하게 연락 주세요.<br>2027학년도 예비 보나 친구들과 학부모님들을 기다리고 있겠습니다.</p>
@@ -561,8 +570,9 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
   ['pointerup','pointercancel','pointerleave'].forEach(function(t){cv.addEventListener(t,function(){down=false;});});
   document.getElementById('sigClear').addEventListener('click',size);
   var form=document.getElementById('applyForm'),res=document.getElementById('applyResult');
-  function open(){sheet.classList.add('open');document.body.classList.add('sheet-open');form.style.display='';res.classList.remove('show');window.scrollTo(0,0);setTimeout(size,30);}
-  function close(){sheet.classList.remove('open');document.body.classList.remove('sheet-open');var t=document.getElementById('applyOpen');if(t)t.scrollIntoView({block:'center'});}
+  var bgm=document.getElementById('bgm'),mbtn=document.getElementById('musicBtn'),musicWasOn=false;
+  function open(){musicWasOn=false;if(bgm&&!bgm.paused&&mbtn){mbtn.click();musicWasOn=true;}sheet.classList.add('open');document.body.classList.add('sheet-open');form.style.display='';res.classList.remove('show');window.scrollTo(0,0);setTimeout(size,30);}
+  function close(){if(musicWasOn&&bgm&&bgm.paused&&mbtn){mbtn.click();}musicWasOn=false;sheet.classList.remove('open');document.body.classList.remove('sheet-open');var t=document.getElementById('applyOpen');if(t)t.scrollIntoView({block:'center'});}
   openB.addEventListener('click',open);
   document.getElementById('applyClose').addEventListener('click',close);
   document.getElementById('applyBack').addEventListener('click',function(){res.classList.remove('show');form.style.display='';window.scrollTo(0,0);});
