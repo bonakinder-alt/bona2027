@@ -8,6 +8,7 @@
 <meta name="robots" content="noindex">
 <title>보나유치원 설명회 감사 인사</title>
 <meta name="referrer" content="no-referrer">
+<meta name="format-detection" content="telephone=no">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
@@ -302,7 +303,7 @@ body.sheet-open .sheet-in{padding-bottom:110px}
   </div>
   <div class="result" id="applyResult">
    <p class="lead">신청서가 만들어졌어요. 아래 순서대로 보내 주세요.<br><b>신청서 이미지를 유치원 카카오톡 채널로 꼭 보내 주셔야 접수가 완료됩니다.</b> 이미지 전송이 안 되면 접수가 되지 않으니 주의해 주세요.</p>
-   <ol class="steps" id="applySteps"><li id="stepShare">"신청서 보내기·저장"을 누르면 공유 창이 열려요. 여기서 카카오톡을 고르면 바로 보낼 수 있고, "이미지 저장"을 고르면 사진첩에 저장돼요.</li><li id="stepSave">"이미지 저장"을 누르거나, 아래 신청서 그림을 길게 눌러 사진으로 저장한 뒤 "카카오톡 채널 열기"로 채팅창에 올려 주세요.</li><li>현장접수는 입학 확정이 아니며, 취소를 원하시면 유치원(02-956-3197)으로 연락 주세요.</li></ol>
+   <ol class="steps" id="applySteps"><li id="stepShare"><div>"신청서 보내기·저장"을 누르면 공유 창이 열려요. 여기서 카카오톡을 고르면 바로 보낼 수 있고, "이미지 저장"을 고르면 사진첩에 저장돼요.</div></li><li id="stepSave"><div>"이미지 저장"을 누르거나, 아래 신청서 그림을 길게 눌러 사진으로 저장한 뒤 "카카오톡 채널 열기"로 채팅창에 올려 주세요.</div></li><li><div>현장접수는 입학 확정이 아니며, 취소를 원하시면 유치원(02-956-3197)으로 연락 주세요.</div></li></ol>
    <div class="inapp" id="inappNote2" hidden><b>카카오톡 안에서는 저장이 되지 않아요.</b><br>신청서 그림을 길게 눌러 "이미지 저장"이 뜨면 저장하시고, 안 되면 아래 버튼으로 크롬·사파리에서 다시 작성해 주세요.<a id="inappOpen2" href="#">크롬·사파리에서 열기</a></div>
    <img id="applyImg" alt="작성한 현장접수 신청서">
    <div class="acts">
@@ -590,6 +591,7 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
   document.getElementById('applyClose').addEventListener('click',close);
   document.getElementById('applyBack').addEventListener('click',function(){res.classList.remove('show');form.style.display='';window.scrollTo(0,0);});
   function v(id){return document.getElementById(id).value.trim();}
+  document.getElementById('fPhone').addEventListener('input',function(){var d=this.value.replace(/[^0-9]/g,'').slice(0,11);this.value=d.length>7?d.replace(/^(\d{3})(\d{3,4})(\d{4})$/,'$1-$2-$3'):d.length>3?d.slice(0,3)+'-'+d.slice(3):d;});
   document.getElementById('fRrn').addEventListener('input',function(){var d=this.value.replace(/[^0-9]/g,'').slice(0,13);this.value=d.length>6?d.slice(0,6)+'-'+d.slice(6):d;});
   var blob=null;
   document.getElementById('applyMake').addEventListener('click',function(){
@@ -598,6 +600,9 @@ document.querySelectorAll('#vision details.chap').forEach(function(d){d.addEvent
     if(!drawn)miss.push('서명');
     if(miss.length){err.textContent=miss.join(', ')+'을(를) 채워 주세요.';return;}
     var rrn=v('fRrn').replace(/[^0-9]/g,'');if(rrn.length!==13){err.textContent='아이 주민등록번호 13자리를 정확히 적어 주세요.';return;}
+    var mm=+rrn.slice(2,4),dd=+rrn.slice(4,6),g=rrn.charAt(6);if(mm<1||mm>12||dd<1||dd>31||(g!=='3'&&g!=='4')){err.textContent='아이 주민등록번호가 맞지 않아요. 앞 6자리는 생년월일, 뒷자리 첫 숫자는 3 또는 4예요. 다시 확인해 주세요.';return;}
+    var ph=v('fPhone').replace(/[^0-9]/g,'');if(!/^01[016789]\d{7,8}$/.test(ph)){err.textContent='보호자 휴대폰 번호를 정확히 적어 주세요. (예: 010-1234-5678)';return;}
+    if(v('fChild').length<2||v('fParent').length<2){err.textContent='이름을 정확히 적어 주세요.';return;}
     if(!document.getElementById('fAgree').checked){err.textContent='개인정보 수집·이용에 동의해 주셔야 신청할 수 있어요.';return;}
     err.textContent='';
     var W=900,H=1330,c=document.createElement('canvas');c.width=W;c.height=H;var g=c.getContext('2d');
