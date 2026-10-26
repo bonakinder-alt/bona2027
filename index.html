@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>보나유치원 입학설명회 안내</title>
 <meta property="og:title" content="2027학년도 보나유치원 입학설명회 안내">
-<meta property="og:description" content="설명회 일정 · 참석 확인 · 오시는 길">
+<meta property="og:description" content="설명회 일정 · 참석 확인 · 진행 순서">
 <meta name="robots" content="noindex">
 <base target="_top">
 <style>html{-webkit-text-size-adjust:100%}body{margin:0;font-size:14px}img{max-width:100%}[hidden]{display:none!important}</style>
@@ -162,7 +162,7 @@ legend{font-size:.88rem;font-weight:500;margin-bottom:8px;padding:0}
   <header>
     <span class="eyebrow">입학설명회를 신청해 주셔서 감사합니다</span>
     <h1>2027학년도 청남학원부속 보나유치원 입학설명회</h1>
-    <p class="lede">설명회 일정과 오시는 길, 진행 순서를 미리 안내해 드립니다.</p>
+    <p class="lede">설명회 일정과 진행 순서를 미리 안내해 드립니다.</p>
     <div class="target">
       <span class="chip">만 3세 · 2023년생</span>
       <span class="chip">만 4세 · 2022년생</span>
@@ -223,26 +223,6 @@ legend{font-size:.88rem;font-weight:500;margin-bottom:8px;padding:0}
       <p class="note" id="doneSummary"></p>
       <button class="linkbtn" type="button" id="editBtn">응답 수정하기</button>
     </div>
-  </section>
-
-  <section id="where">
-    <div class="sec-head"><h2>장소와 오시는 길</h2></div>
-    <div class="place">
-      <p>학교법인 청남학원 부속 보나유치원은 <b>우성2차아파트 단지 안</b>에 있습니다.</p>
-      <div class="big">설명회는 유치원 지하 강당에서 진행됩니다</div>
-      <div class="links">
-        <a class="btn primary" href="https://map.naver.com/p/search/%EC%B2%AD%EB%82%A8%ED%95%99%EC%9B%90%EB%B6%80%EC%86%8D%EB%B3%B4%EB%82%98%EC%9C%A0%EC%B9%98%EC%9B%90" target="_blank" rel="noopener">네이버 지도</a>
-        <a class="btn" href="https://map.kakao.com/link/search/%EC%B2%AD%EB%82%A8%ED%95%99%EC%9B%90%EB%B6%80%EC%86%8D%EB%B3%B4%EB%82%98%EC%9C%A0%EC%B9%98%EC%9B%90" target="_blank" rel="noopener">카카오맵</a>
-      </div>
-    </div>
-    <div class="notice big" id="parking">
-      <span class="eyebrow">주차 안내</span>
-      <b>유치원이 아파트 단지 안에 있어 유치원 전용 주차 공간이 없습니다</b>
-      <p><strong>가능하면 걸어오시거나 대중교통을 이용해 주세요.</strong></p>
-      <p>차를 가져오시는 경우에는 아파트 입주민께 불편이 없도록 주차해 주시기 바랍니다. 유치원에서 주차 공간을 따로 마련해 드리지 못하는 점 양해 부탁드립니다.</p>
-    </div>
-    <div class="yt-embed"><iframe src="https://www.youtube.com/embed/dU1bkLtIsA4?rel=0&playsinline=1&enablejsapi=1" id="ytPlayer" title="보나유치원 설명회 찾아오시는 길" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>
-    <p class="yt-cap">처음 오시는 분들도 쉽게 찾아오실 수 있도록 아파트 입구부터 유치원까지 걸어오는 길을 담았어요.</p>
   </section>
 
   <section id="day">
@@ -306,10 +286,6 @@ var BGM_SRC='bona-welcome-music.mp3';
   w.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();enter();}});
   a.addEventListener('play',setBtn);a.addEventListener('pause',setBtn);
   b.addEventListener('click',function(){if(a.paused)play();else a.pause();});
-  window.onYouTubeIframeAPIReady=function(){
-    try{new YT.Player('ytPlayer',{events:{onStateChange:function(e){if(e.data===YT.PlayerState.PLAYING&&!a.paused)a.pause();}}});}catch(err){}
-  };
-  var s=document.createElement('script');s.src='https://www.youtube.com/iframe_api';document.head.appendChild(s);
 })();
 $('copyTel').addEventListener('click',function(){
   var t=$('telToast');
