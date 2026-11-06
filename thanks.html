@@ -225,8 +225,35 @@ body.locked{overflow:hidden}
 
 </style>
 <style>html{-webkit-text-size-adjust:100%}body{margin:0;background:var(--bg);color:var(--ink)}</style>
+
+<script>
+/* 설명회 감사 페이지 마감: 기본은 마무리 인사만 보여요. 원장님은 주소 뒤에 ?view=bona2027 을 붙이면 원래 페이지가 보여요. */
+(function(){try{if(!/(^|[?&])view=bona2027(&|$)/.test(location.search))document.documentElement.className+=' closed';}catch(e){document.documentElement.className+=' closed';}})();
+</script>
+<style>
+#closedView{display:none}
+html.closed body>*:not(#closedView){display:none!important}
+html.closed body{padding:0;overflow:auto}
+html.closed #closedView{display:flex;min-height:100vh;min-height:100dvh;align-items:center;justify-content:center;padding:32px 16px;text-align:center}
+#closedView .card{max-width:440px;width:100%;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:40px 24px;display:flex;flex-direction:column;gap:16px;align-items:center}
+#closedView .mark{width:56px;height:56px;border-radius:50%;background:var(--leaf-soft);color:var(--leaf);display:grid;place-items:center}
+#closedView .mark svg{width:28px;height:28px;fill:currentColor}
+#closedView .sch{font-size:.9rem;color:var(--muted);margin:0}
+#closedView h1{font-size:1.5rem;line-height:1.5;margin:0;word-break:keep-all;color:var(--ink)}
+#closedView .thanks{color:var(--ink);font-size:1.05rem;margin:0}
+#closedView footer{font-size:.8rem;color:var(--muted);margin-top:8px}
+</style>
 </head>
 <body>
+<div id="closedView" role="main">
+  <div class="card">
+    <div class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></div>
+    <p class="sch">청남학원 부속 보나유치원</p>
+    <h1>2027학년도 청남학원 부속<br>보나유치원에서 만나길<br>기대하고 있겠습니다.</h1>
+    <p class="thanks">감사합니다.</p>
+    <footer>교육상담 02-956-3197</footer>
+  </div>
+</div>
 
 
 <div class="intro" id="intro" role="dialog" aria-label="첫 화면">
